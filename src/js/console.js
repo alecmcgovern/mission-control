@@ -8,9 +8,14 @@ export default class Console extends React.Component {
 
 	componentDidMount() {
 		let instructions1 = {
-		  strings: ["Welcome to Space.", "Prepare yourself."],
-		  typeSpeed: 40,
-		  showCursor: false
+		  strings: ["Welcome to Space", "Prepare yourself"],
+		  startDelay: 0,
+		  typeSpeed: 60,
+		  backDelay: 2000,
+		  backSpeed: 20,
+		  showCursor: true,
+		  cursorChar: "_",
+		  autoInsertCss: true
 		}
 		let typed = new Typed(".typed-text", instructions1);
 	}

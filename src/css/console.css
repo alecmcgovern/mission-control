@@ -1,4 +1,8 @@
 .typed-text-container {
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
 	padding: 20px;
 	width: 400px;
 	height: 400px;
@@ -7,4 +11,25 @@
 	border: 2px solid white;
 
 	font-family: 'Orbitron', sans-serif;
+}
+
+.typed-text {
+
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0.0;
+	}
+}
+
+@-webkit-keyframes blink {
+	50% {
+		opacity: 0.0;
+	}
+}
+
+.typed-cursor {
+	animation: blink 1s step-start 0s infinite;
+	-webkit-animation: blink 1s step-start 0s infinite;
 }

@@ -1,0 +1,10 @@
+.typed-text-container {
+	padding: 20px;
+	width: 400px;
+	height: 400px;
+	background-color: black;
+	color: green;
+	border: 2px solid white;
+
+	font-family: 'Orbitron', sans-serif;
+}

@@ -1,0 +1,14 @@
+body {
+	margin: 0px;
+}
+
+.play-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-y: auto;
+	width: 100vw;
+	height: 100vh;
+
+	background-image: url('../images/moon.jpg');
+}

@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
 
-import Header from './header.js';
-import LeftMenu from './leftmenu.js';
+import Footer from './js/footer.js';
+import Console from './js/console.js';
 
 class App extends React.Component {
 	render() {
 		return (
 			<div className="screen">
-				<Header />
-				<LeftMenu />
+				<div className="play-area">
+					<Console />
+				</div>
+				<Footer />
 			</div>
 		);
 	}

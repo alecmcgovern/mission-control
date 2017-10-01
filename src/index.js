@@ -9,9 +9,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="screen">
+					<Console />
 				<div className="play-area">
 					<img className="background-image" src={require("./images/moon.jpg")} alt=""></img>
-					<Console />
 				</div>
 				<Footer />
 			</div>

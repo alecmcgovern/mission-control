@@ -11,10 +11,14 @@
 	border: 2px solid white;
 
 	font-family: 'Orbitron', sans-serif;
+
+	line-height: 25px;
 }
 
 .typed-text {
-
+	overflow: auto;
+	white-space: pre-wrap;
+	width: 100%;
 }
 
 @keyframes blink {

@@ -1,23 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Typed from 'typed.js';
+import * as strings from './strings.js';
 import '../css/console.css';
 
 
 export default class Console extends React.Component {
 
 	componentDidMount() {
-		let instructions1 = {
-		  strings: ["Welcome to Space", "Prepare yourself"],
+		let instructions = {
+		  strings: [strings.INSTRUCTIONS],
 		  startDelay: 0,
-		  typeSpeed: 60,
+		  typeSpeed: 40,
 		  backDelay: 2000,
 		  backSpeed: 20,
-		  showCursor: true,
+		  showCursor: false,
 		  cursorChar: "_",
-		  autoInsertCss: true
+		  autoInsertCss: true,
+		  contentType: 'text'
 		}
-		let typed = new Typed(".typed-text", instructions1);
+		let typed = new Typed(".typed-text", instructions);
 	}
 
 	render() {

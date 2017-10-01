@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 
 import Footer from './js/footer.js';
-import Console from './js/console.js';
+import Menu from './js/menu.js';
 
 class App extends React.Component {
+	consoleState() {
+
+	}
+
 	render() {
 		return (
 			<div className="screen">
-					<Console />
 				<div className="play-area">
+					<Menu />
 					<img className="background-image" src={require("./images/moon.jpg")} alt=""></img>
 				</div>
 				<Footer />

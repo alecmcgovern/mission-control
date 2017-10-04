@@ -59,17 +59,17 @@ class Menu extends React.Component {
 	}
 
 	render() {
-			return <div className="menu-container">
-					{this.buildPanel(this.props.panelIndex)}
-					<div className="bottom-menu">
-						<div className="toggle-container">
-							<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
-							<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
-							<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
-						</div>
-						<div className="close-menu" onClick={() => this.closeMenu()}></div>
+		return <div className="menu-container">
+				{this.buildPanel(this.props.panelIndex)}
+				<div className="bottom-menu">
+					<div className="toggle-container">
+						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
+						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
+						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
 					</div>
-				</div>;
+					<div className="close-menu" onClick={() => this.closeMenu()}></div>
+				</div>
+			</div>;
 
 	}
 };

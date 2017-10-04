@@ -8,15 +8,24 @@ export default function uiState(state = initialState.uiState, action) {
 		case OPEN_MENU:
 			console.log('OPEN_MENU Action');
 			newState.menuOpen = true;
-			return newState;
+			return {
+				menuOpen: true,
+				panelIndex: 0
+			};
 		case CLOSE_MENU:
 			console.log('CLOSE_MENU Action');
 			newState.menuOpen = false;
-			return newState;
+			return {
+				menuOpen: false,
+				panelIndex: 0
+			};
 		case SET_PANEL:
 			console.log('SET_PANEL to ' + action.panelIndex);
 			newState.panelIndex = action.panelIndex;
-			return newState;
+			return {
+				menuOpen: true,
+				panelIndex: action.panelIndex
+			};
 		default:
 			return state;
 	}

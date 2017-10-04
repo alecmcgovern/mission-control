@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/footer.css';
+import '../css/index.css';
 
 export default class Footer extends React.Component {
 
@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
 
 		return (
 			<div className="footer">
-				<audio controls autoPlay className="sfx-audio">
+				<audio controls className="sfx-audio">
 					<source src="./../audio/beep1.mp3" />
 				</audio>
 			</div>

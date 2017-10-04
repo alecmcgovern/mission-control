@@ -1,0 +1,19 @@
+.game-view {
+	position: relative;
+	display: flex;
+	flex-grow: 1;
+	overflow: auto;
+	border: 4px solid yellow;
+}
+
+.menu-icon {
+	margin-top: 10px;
+	position: fixed;
+	width: 50px;
+	cursor: pointer;
+}
+
+.background-image {
+	position: absolute;
+	z-index: -1;
+}

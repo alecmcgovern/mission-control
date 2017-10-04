@@ -2,7 +2,7 @@ import React from 'react';
 import Typed from 'typed.js';
 import * as strings from './strings.js';
 
-import '../css/console.css';
+import '../css/menu.css';
 
 
 export default class Menu extends React.Component {
@@ -23,7 +23,7 @@ export default class Menu extends React.Component {
 	}
 
 	render () {
-		return <div className="typed-text-container">
+		return <div className="console">
 			<div className="typed-text"></div>
 		</div>;
 	}

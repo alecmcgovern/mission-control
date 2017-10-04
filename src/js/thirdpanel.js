@@ -1,11 +1,11 @@
 import React from 'react';
 
-import '../css/thirdpanel.css';
+import '../css/menu.css';
 
 
 export default class Menu extends React.Component {
 	render () {
-		return <div className="typed-text-container-3">
+		return <div className="third-panel">
 			<div className="third-panel-header">Third Panel</div>
 		</div>;
 	}

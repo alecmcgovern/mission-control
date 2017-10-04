@@ -8,6 +8,7 @@ import './css/index.css';
 
 import Footer from './js/footer.js';
 import Menu from './js/menu.js';
+import GameView from './js/gameview.js';
 
 const store = configureStore();
 
@@ -20,7 +21,7 @@ class App extends React.Component {
 			<div className="screen">
 				<div className="play-area">
 					<Menu />
-					<img className="background-image" src={require("./images/moon.jpg")} alt=""></img>
+					<GameView />
 				</div>
 				<Footer />
 			</div>

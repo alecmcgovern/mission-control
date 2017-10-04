@@ -25,29 +25,6 @@ function mapDispatchToProps(dispatch) {
 
 class Menu extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = { index: 0 };
-	}
-
-	closeMenu() {
-		this.props.uiStateActions.closeMenu();
-		console.log(this.props);
-	}
-
-	toggleMenu() {
-		return (
-			<div className="bottom-menu">
-				<div className="toggle-container">
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
-				</div>
-				<div className="close-menu" onClick={() => this.closeMenu()}></div>
-			</div>
-		);
-	}
-
 	buildPanel(index) {
 		if(index === 0) {
 			return <ConsolePanel/>
@@ -59,15 +36,17 @@ class Menu extends React.Component {
 	}
 
 	render() {
-		return <div className="menu-container">
+		let menuContainerClassName = "menu-container";
+
+		if (!this.props.menuOpen) {
+			menuContainerClassName += " closed";
+		}
+		return <div className={menuContainerClassName}>
 				{this.buildPanel(this.props.panelIndex)}
 				<div className="bottom-menu">
-					<div className="toggle-container">
-						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
-						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
-						<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
-					</div>
-					<div className="close-menu" onClick={() => this.closeMenu()}></div>
+					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
+					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
+					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
 				</div>
 			</div>;
 

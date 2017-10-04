@@ -1,11 +1,11 @@
 import React from 'react';
 
-import '../css/inventory.css';
+import '../css/menu.css';
 
 
 export default class Menu extends React.Component {
 	render () {
-		return <div className="typed-text-container-2">
+		return <div className="inventory">
 			<div>Inventory</div>
 		</div>;
 	}

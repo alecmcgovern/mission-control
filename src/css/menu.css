@@ -41,7 +41,15 @@
 
 
 
+.bottom-menu {
 
+}
+
+.close-menu {
+	width: 100%;
+	background-color: pink;
+	height: 20px
+}
 
 
 .toggle-container {

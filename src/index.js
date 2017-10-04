@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store/configureStore';
+import {Provider} from 'react-redux';
+
+
 import './css/index.css';
 
 import Footer from './js/footer.js';
 import Menu from './js/menu.js';
 
-class App extends React.Component {
-	consoleState() {
+const store = configureStore();
 
-	}
+class App extends React.Component {
 
 	render() {
 		return (
+			<Provider store={store}>
+
 			<div className="screen">
 				<div className="play-area">
 					<Menu />
@@ -19,6 +24,7 @@ class App extends React.Component {
 				</div>
 				<Footer />
 			</div>
+			</Provider>
 		);
 	}
 }

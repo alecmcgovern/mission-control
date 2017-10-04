@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Typed from 'typed.js';
 import * as strings from './strings.js';
 

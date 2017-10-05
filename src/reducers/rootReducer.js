@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 import uiState from './uiStateReducer';
+import itemState from './itemReducer';
 
 
 const rootReducer = combineReducers({
-	uiState
+	uiState,
+	itemState
 });
 
 export default rootReducer;

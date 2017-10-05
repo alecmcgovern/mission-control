@@ -5,7 +5,10 @@ import * as uiStateActions from '../actions/uiStateActions';
 import * as itemActions from '../actions/itemActions';
 
 // Images
+import moon from '../images/moon.jpg';
+import menuIcon from '../images/menu-icon.png';
 import object1 from '../images/object1.png';
+import object2 from '../images/object2.png';
 
 import '../css/gameview.css';
 
@@ -24,8 +27,24 @@ function mapDispatchToProps(dispatch) {
 }
 
 class GameView extends React.Component {
+
+	renderItems() {
+		let gameViewItems = [];
+
+		this.props.itemState.forEach((item) => {
+			if(item.itemState === 0) {
+				gameViewItems.push(
+					<img className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 0)} src={item.itemUrl} alt=""></img>
+				)
+			}
+		});
+		
+		return gameViewItems;
+	}
+
 	render() {
 		let object1ClassName = "object1";
+		let object2ClassName = "object2";
 
 		for (var i = 0; i < this.props.itemState.length; i++) {
 			if (this.props.itemState.length > 0 ) {
@@ -33,15 +52,21 @@ class GameView extends React.Component {
 			}
 		}
 
+		this.props.itemState.forEach((item) => {
+			if (item.itemState !== 0) {
+
+			}
+		});
+
 		return <div className="game-view">
 				{/*IMAGES*/}
-				<img className="background-image" src={require("../images/moon.jpg")} alt=""></img>
+				<img className="background-image" src={moon} alt=""></img>
 
 				{/*ITEMS*/}
-				<img className={object1ClassName} onClick={() => this.props.itemActions.addItem(object1)} src={object1}></img>
-
+				{this.renderItems()}
+				
 				{/*ICONS*/}
-				<img className="menu-icon" onClick={() => this.props.uiStateActions.toggleMenu()} src={require("../images/menu-icon.png")} alt=""></img>
+				<img className="menu-icon" onClick={() => this.props.uiStateActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}
 }

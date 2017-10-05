@@ -27,3 +27,11 @@
 .hidden {
 	visibility: hidden;
 }
+
+.object2 {
+	position: absolute;
+	width: 120px;
+	top: 400px;
+	left: 100px;
+	cursor: pointer;
+}

@@ -21,15 +21,18 @@ function mapDispatchToProps(dispatch) {
 class InventoryPanel extends React.Component {
 	renderItems() {
 		let inventoryItems = [];
+
 		this.props.itemState.forEach((item) => {
-			inventoryItems.push(
-				<div className="inventory-item">
-					<img className="inventory-item-image" src={item.itemUrl} alt=""></img>
-				</div>
-			)
+			if(item.itemState === 1) {
+				inventoryItems.push(
+					<div className="inventory-item">
+						<img className="inventory-item-image" src={item.itemUrl} alt=""></img>
+					</div>
+				)
+			}
 		});
+
 		return inventoryItems;
-		
 	}
 
 	render () {

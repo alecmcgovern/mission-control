@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Hi,
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+If you're reading this, you're probably wondering what this project is.  
+
+SpaceFix is inspired by mystery adventure games like [Myst](https://en.wikipedia.org/wiki/Myst).  
+Players must discover and solve clues to unlock the story.
+
+Built in an effort to better understand the way React and Redux work together.
+
+-Alec

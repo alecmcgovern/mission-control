@@ -1,1 +1,1 @@
-export const INSTRUCTIONS = "Welcome to Space^1000\n\nPrepare yourself for the greatest challenge you have ever faced.  \xa0 ^500 Your mission is to survive.\n\n^1000Good luck";
+export const INSTRUCTIONS = "Welcome to Space\n\nPrepare yourself for the greatest challenge you have ever faced.  \xa0 Your mission is to survive.\n\n^1000Good luck";

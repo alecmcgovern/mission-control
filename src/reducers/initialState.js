@@ -27,5 +27,9 @@ export default {
 			itemState: 0,
 			className: "object3 interact"
 		}
-	]
+	],
+
+	consoleState: {
+		taskNumber: 0
+	}
 };

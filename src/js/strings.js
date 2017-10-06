@@ -1,1 +1,2 @@
-export const INSTRUCTIONS = "Welcome to Space\n\nPrepare yourself for the greatest challenge you have ever faced.  \xa0 Your mission is to survive.\n\n^1000Good luck";
+export const TEXT_ONE_TYPED = "Welcome to Space\n\nPrepare yourself for the greatest challenge you have ever faced.  \xa0 Your mission is to survive.\n\n^1000Good luck";
+export const TEXT_ONE = "Welcome to Space\n\nPrepare yourself for the greatest challenge you have ever faced.  \xa0 Your mission is to survive.\n\nGood luck";

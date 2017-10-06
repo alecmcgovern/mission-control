@@ -5,10 +5,10 @@ import * as uiStateActions from '../actions/uiStateActions';
 import * as itemActions from '../actions/itemActions';
 
 // Images
-import moon from '../images/moon.jpg';
+import background from '../images/moon.jpg';
+import moon from '../images/moon.png';
 import menuIcon from '../images/menu-icon.png';
-import object1 from '../images/object1.png';
-import object2 from '../images/object2.png';
+
 
 import '../css/gameview.css';
 
@@ -27,6 +27,20 @@ function mapDispatchToProps(dispatch) {
 }
 
 class GameView extends React.Component {
+
+	renderOrbit() {
+		let orbitItems = [];
+
+		this.props.itemState.forEach((item) => {
+			if(item.itemState === 2) {
+				orbitItems.push(
+					<img className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 2)} src={item.itemUrl} alt=""></img>
+				)
+			}
+		});
+
+		return orbitItems;
+	}
 
 	renderItems() {
 		let gameViewItems = [];
@@ -60,7 +74,11 @@ class GameView extends React.Component {
 
 		return <div className="game-view">
 				{/*IMAGES*/}
-				<img className="background-image" src={moon} alt=""></img>
+				<img className="background-image" src={background} alt=""></img>
+				<div className="moon-orbit">
+					<img className="moon" src={moon} alt=""></img>
+					{this.renderOrbit()}
+				</div>
 
 				{/*ITEMS*/}
 				{this.renderItems()}

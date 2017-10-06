@@ -16,22 +16,47 @@
 	position: absolute;
 }
 
+.moon-orbit {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 900px;
+	height: 900px;
+	left: 120px;
+	top: 20px;
+
+	-webkit-animation: spin 45s linear infinite;
+	-moz-animation: spin 45s linear infinite;
+	-animation: spin 45s linear infinite;
+	
+}
+
+.moon {
+	width: 650px;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
+
 .object1 {
 	position: absolute;
-	width: 120px;
-	top: 200px;
 	left: 800px;
+	width: 120px;
+}
+
+.object2 {
+	position: absolute;
+	width: 40px;
+	top: 400px;
+	left: 1200px;
+}
+
+.interact {
 	cursor: pointer;
 }
 
 .hidden {
 	visibility: hidden;
-}
-
-.object2 {
-	position: absolute;
-	width: 120px;
-	top: 400px;
-	left: 100px;
-	cursor: pointer;
 }

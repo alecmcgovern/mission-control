@@ -11,14 +11,14 @@ export default {
 		{ 
 			itemUrl: object1,
 			itemName: "spinner",
-			itemState: 0,
-			className: "object1"
+			itemState: 2,
+			className: "object1 interact"
 		},
 		{
 			itemUrl: object2,
 			itemName: "spring",
 			itemState: 0,
-			className: "object2"
+			className: "object2 interact"
 		}
 	]
 };

@@ -34,10 +34,6 @@
 	color: green;
 }
 
-.inventory {
-	color: blue;
-}
-
 .third-panel {
 	color: red;
 }
@@ -77,23 +73,6 @@
 	justify-content: space-between;
 }
 
-.toggle, .toggle, .toggle {
+.toggle {
 	cursor: pointer;
-}
-
-.inventory-container {
-	flex-grow: 1;
-}
-
-.inventory-item {
-	display: flex;
-	justify-content: center;
-	
-	width: 100px;
-	height: 100px;
-	border: 1px solid white;
-}
-
-.inventory-item-image {
-	height: 100px;
 }

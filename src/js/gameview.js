@@ -31,10 +31,10 @@ class GameView extends React.Component {
 	renderOrbit() {
 		let orbitItems = [];
 
-		this.props.itemState.forEach((item) => {
+		this.props.itemState.forEach((item, index) => {
 			if(item.itemState === 2) {
 				orbitItems.push(
-					<img className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 2)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 2)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});
@@ -45,10 +45,10 @@ class GameView extends React.Component {
 	renderItems() {
 		let gameViewItems = [];
 
-		this.props.itemState.forEach((item) => {
+		this.props.itemState.forEach((item, index) => {
 			if(item.itemState === 0) {
 				gameViewItems.push(
-					<img className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 0)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 0)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});
@@ -57,20 +57,6 @@ class GameView extends React.Component {
 	}
 
 	render() {
-		let object1ClassName = "object1";
-		let object2ClassName = "object2";
-
-		for (var i = 0; i < this.props.itemState.length; i++) {
-			if (this.props.itemState.length > 0 ) {
-				object1ClassName += " hidden";
-			}
-		}
-
-		this.props.itemState.forEach((item) => {
-			if (item.itemState !== 0) {
-
-			}
-		});
 
 		return <div className="game-view">
 				{/*IMAGES*/}

@@ -19,6 +19,7 @@ export default class Menu extends React.Component {
 		  autoInsertCss: true,
 		  contentType: 'text'
 		}
+		
 		let typed = new Typed(".typed-text", instructions);
 	}
 

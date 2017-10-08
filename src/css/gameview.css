@@ -5,6 +5,22 @@
 	overflow: auto;
 }
 
+.game-view-overlay {
+	position: absolute;
+	width: 1920px;
+	height: 1280px;
+	background-color: black;
+	z-index: 1;
+
+	-webkit-transition: opacity 2s;
+	transition: opacity 2s;
+}
+
+.hide {
+	opacity: 0;
+}
+
+
 .menu-icon {
 	margin-top: 10px;
 	position: fixed;

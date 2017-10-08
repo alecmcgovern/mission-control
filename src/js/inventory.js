@@ -23,7 +23,7 @@ class InventoryPanel extends React.Component {
     let inventoryItems = [];
 
     this.props.itemState.forEach((item) => {
-      if (item.itemState === 1) {
+      if (item.itemLocation === 1) {
         inventoryItems.push(
           <div className="inventory-item">
 						<img className="inventory-item-image" src={item.itemUrl} alt=""></img>

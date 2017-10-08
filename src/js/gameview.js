@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiStateActions from '../actions/uiStateActions';
 import * as itemActions from '../actions/itemActions';
+import * as consoleActions from '../actions/consoleActions';
 
 // Images
 import background from '../images/moon.jpg';
@@ -15,14 +16,16 @@ import '../css/gameview.css';
 function mapStateToProps(state) {
 	return {
 		menuOpen: state.uiState.menuOpen,
-		itemState: state.itemState
+		itemState: state.itemState,
+		consoleState: state.consoleState
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
 		uiStateActions: bindActionCreators(uiStateActions, dispatch),
-		itemActions: bindActionCreators(itemActions, dispatch)
+		itemActions: bindActionCreators(itemActions, dispatch),
+		consoleActions: bindActionCreators(consoleActions, dispatch)
 	};
 }
 
@@ -39,7 +42,7 @@ class GameView extends React.Component {
 					orbitingItemClassName += " rotating";
 				}
 				orbitItems.push(
-					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 2, item.itemState)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.addItem(item.itemName, 2)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});
@@ -53,7 +56,7 @@ class GameView extends React.Component {
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 0) {
 				gameViewItems.push(
-					<img key={index} className={item.className} onClick={() => this.props.itemActions.addItem(item.itemUrl, item.itemName, 0)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={item.className} onClick={() => this.props.itemActions.addItem(item.itemName, 0)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});
@@ -62,8 +65,14 @@ class GameView extends React.Component {
 	}
 
 	render() {
+		let overlayClassName = "game-view-overlay";
+
+		if (this.props.consoleState.taskNumber > 1) {
+			overlayClassName += " hide";
+		}
 
 		return <div className="game-view">
+				<div className={overlayClassName}></div>
 				{/*IMAGES*/}
 				<img className="background-image" src={background} alt=""></img>
 				<div className="moon-orbit">

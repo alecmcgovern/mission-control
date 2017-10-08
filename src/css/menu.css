@@ -30,39 +30,9 @@
 	height: 100%;
 }
 
-.console {
-	color: green;
-}
-
 .third-panel {
 	color: red;
 }
-
-
-
-.console-text {
-	overflow: auto;
-	white-space: pre-wrap;
-	width: 100%;
-}
-
-@keyframes blink {
-	50% {
-		opacity: 0.0;
-	}
-}
-
-@-webkit-keyframes blink {
-	50% {
-		opacity: 0.0;
-	}
-}
-
-.typed-cursor {
-	animation: blink 1s step-start 0s infinite;
-	-webkit-animation: blink 1s step-start 0s infinite;
-}
-
 
 
 .bottom-menu {

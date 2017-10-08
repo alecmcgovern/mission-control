@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {ADD_ITEM} from '../actions/actionTypes';
+import {ADD_ITEM, CHANGE_ITEM_STATE} from '../actions/actionTypes';
 
 export default function itemState(state = initialState.itemState, action) {
 	switch(action.type) {
@@ -8,10 +8,18 @@ export default function itemState(state = initialState.itemState, action) {
 			return state.map((item) => {
 				if (item.itemName === action.item.itemName) {
 					return Object.assign({}, item, {
-						itemUrl: action.item.itemUrl,
-						itemName: action.item.itemName,
-						itemState: 1,
-						className: action.item.className				
+						itemLocation: 1,
+					});
+				}
+
+				return item;
+			});
+		case CHANGE_ITEM_STATE:
+			console.log("CHANGE_ITEM_STATE" + action.item.itemState);
+			return state.map((item) => {
+				if (item.itemName === action.item.itemName) {
+					return Object.assign({}, item, {
+						itemState: (item.itemState + 1) % 2,
 					});
 				}
 
@@ -23,7 +31,10 @@ export default function itemState(state = initialState.itemState, action) {
 }
 
 
-/* Item states:  0 = original position in gameView
+/* Item locations:  0 = original position in gameView
 				 1 = inventory
 				 2 = placed somewhere in gameview
+
+	Item states: 0 = immobile
+				 1 = rotating
 */

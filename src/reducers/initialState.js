@@ -12,18 +12,21 @@ export default {
 		{ 
 			itemUrl: object1,
 			itemName: "spinner",
-			itemState: 2,
+			itemLocation: 2,
+			itemState: 0,
 			className: "object1 interact"
 		},
 		{
 			itemUrl: object2,
 			itemName: "spring",
+			itemLocation: 0,
 			itemState: 0,
 			className: "object2 interact"
 		},
 		{
 			itemUrl: object3,
 			itemName: "tablet",
+			itemLocation: 0,
 			itemState: 0,
 			className: "object3 interact"
 		}

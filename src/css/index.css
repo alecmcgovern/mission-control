@@ -44,6 +44,11 @@ body {
 	border-top: 2px solid white;
 }
 
+.test-button {
+	width: 100px;
+	height: 30px;
+}
+
 .sfx-audio {
 	visibility: hidden;
 }

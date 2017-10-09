@@ -11,6 +11,7 @@ import * as THREE from 'three';
 // Images
 import stars from '../images/stars.jpg';
 import moon from '../images/moon.png';
+import moonThermal from '../images/moonThermal.png';
 import menuIcon from '../images/menu-icon.png';
 
 
@@ -35,21 +36,18 @@ function mapDispatchToProps(dispatch) {
 class Three extends React.Component {
 	constructor(props, context) {
 		super(props, context);
-		this.cameraPosition = new THREE.Vector3(0,0,5);
+		this.cameraPosition = new THREE.Vector3(0,0,100);
 	}
 
 	render() {
+		let divisions = 24;
 		return(
-			<React3 mainCamera="camera" width={500} height={500}>
+			<React3 mainCamera="camera" width={600} height={600} alpha={true}>
 				<scene>
-					<perspectiveCamera name="camera" fox={75} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
+					<perspectiveCamera name="camera" fov={75} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
 					<mesh>
-						<boxGeometry
-			              width={100}
-			              height={100}
-			              depth={100}
-			            />
-				          <meshBasicMaterial color={0x00ff00}/>
+						<sphereGeometry radius={60} widthSegments={divisions} heightSegments={divisions} />
+				          <meshBasicMaterial color={0x00ff00} wireframe={true}/>
 					</mesh>
 				</scene>
 			</React3>
@@ -63,9 +61,11 @@ class GameView extends React.Component {
 		let orbitItems = [];
 
 		if(this.props.uiState.camera === 0) {
-			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>)
+			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>);
 		} else if (this.props.uiState.camera === 1) {
 			orbitItems.push(<Three key={-2}/>);
+		} else if (this.props.uiState.camera === 2) {
+			orbitItems.push(<img key={-3} className="moon" src={moonThermal} alt=""></img>);
 		}
 
 		this.props.itemState.forEach((item, index) => {

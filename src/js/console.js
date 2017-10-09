@@ -51,7 +51,7 @@ class ConsolePanel extends React.Component {
 	componentDidUpdate() {
 		let text2 = {
 		  	...typedTextOptions,
-		  	strings: [Strings.TEXT_TWO],
+		  	strings: [Strings.TEXT_TWO_TYPED],
 		  	onComplete: () => {this.props.consoleActions.goForward()}
 		}
 

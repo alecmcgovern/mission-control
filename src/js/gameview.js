@@ -6,7 +6,7 @@ import * as itemActions from '../actions/itemActions';
 import * as consoleActions from '../actions/consoleActions';
 
 // Images
-import background from '../images/moon.jpg';
+import stars from '../images/stars.jpg';
 import moon from '../images/moon.png';
 import menuIcon from '../images/menu-icon.png';
 
@@ -73,17 +73,16 @@ class GameView extends React.Component {
 
 		return <div className="game-view">
 				<div className={overlayClassName}></div>
-				{/*IMAGES*/}
-				<img className="background-image" src={background} alt=""></img>
-				<div className="moon-orbit">
-					<img className="moon" src={moon} alt=""></img>
-					{this.renderOrbit()}
-				</div>
+				<img className="background-image" src={stars} alt=""></img>
 
-				{/*ITEMS*/}
-				{this.renderItems()}
+				<div className="layer-1">
+					<div className="moon-orbit">
+						<img className="moon" src={moon} alt=""></img>
+						{this.renderOrbit()}
+					</div>
+				</div>
+					{this.renderItems()}
 				
-				{/*ICONS*/}
 				<img className="menu-icon" onClick={() => this.props.uiStateActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}

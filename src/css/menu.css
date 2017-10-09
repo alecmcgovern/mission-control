@@ -41,11 +41,21 @@
 	justify-content: space-between;
 }
 
-.console-toggle, .inventory-toggle {
-	cursor: pointer;
-	color: #02fcbd;
+.bottom-menu-hide {
+	opacity: 0;
 }
 
-.console-toggle:hover, .inventory-toggle:hover {
-	color: white;
+.console-toggle, .inventory-toggle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+
+	cursor: pointer;
+	color: #02fcbd;
+	width: 100px;
+}
+
+.toggle-selected {
+	border: 2px solid #02fcbd;
 }

@@ -5,7 +5,6 @@ import * as consoleActions from '../actions/consoleActions';
 import * as uiActions from '../actions/uiActions';
 
 
-
 import Typed from 'typed.js';
 import * as Strings from './strings.js';
 
@@ -35,8 +34,6 @@ const typedTextOptions = {
   	autoInsertCss: true,
   	contentType: 'text'
 }
-
-
 
 class ConsolePanel extends React.Component {
 
@@ -101,6 +98,8 @@ class ConsolePanel extends React.Component {
 		</div>;
 	}
 };
+
+
 
 export default connect(
 	mapStateToProps,

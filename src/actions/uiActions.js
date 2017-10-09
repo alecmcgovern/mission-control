@@ -7,3 +7,8 @@ export function toggleMenu() {
 export function setPanel(panelIndex) {
 	return {type: types.SET_PANEL, panelIndex: panelIndex};
 }
+
+export function setCamera(camera) {
+	return {type: types.SET_CAMERA, camera: camera};
+}
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as uiStateActions from '../actions/uiStateActions';
+import * as uiActions from '../actions/uiActions';
 
 
 import ConsolePanel from './console.js';
@@ -19,7 +19,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		uiStateActions: bindActionCreators(uiStateActions, dispatch)
+		uiActions: bindActionCreators(uiActions, dispatch)
 	};
 }
 
@@ -44,9 +44,9 @@ class Menu extends React.Component {
 		return <div className={menuContainerClassName}>
 				{this.buildPanel(this.props.panelIndex)}
 				<div className="bottom-menu">
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(0)}>console</div>
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(1)}>inventory</div>
-					<div className="toggle" onClick={() => this.props.uiStateActions.setPanel(2)}>panel</div>
+					<div className="toggle" onClick={() => this.props.uiActions.setPanel(0)}>console</div>
+					<div className="toggle" onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
+					<div className="toggle" onClick={() => this.props.uiActions.setPanel(2)}>panel</div>
 				</div>
 			</div>;
 

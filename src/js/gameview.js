@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as uiStateActions from '../actions/uiStateActions';
+import * as uiActions from '../actions/uiActions';
 import * as itemActions from '../actions/itemActions';
 import * as consoleActions from '../actions/consoleActions';
 
@@ -23,7 +23,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		uiStateActions: bindActionCreators(uiStateActions, dispatch),
+		uiActions: bindActionCreators(uiActions, dispatch),
 		itemActions: bindActionCreators(itemActions, dispatch),
 		consoleActions: bindActionCreators(consoleActions, dispatch)
 	};
@@ -83,7 +83,7 @@ class GameView extends React.Component {
 				</div>
 					{this.renderItems()}
 				
-				<img className="menu-icon" onClick={() => this.props.uiStateActions.toggleMenu()} src={menuIcon} alt=""></img>
+				<img className="menu-icon" onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}
 }

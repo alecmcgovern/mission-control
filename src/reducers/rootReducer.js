@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import uiState from './uiStateReducer';
+import uiState from './uiReducer';
 import itemState from './itemReducer';
 import consoleState from './consoleReducer';
 

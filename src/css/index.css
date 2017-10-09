@@ -31,24 +31,3 @@ body {
 	width: 100%;
 	flex-grow: 1;
 }
-
-.footer {
-	width: 100%;
-	height: 50px;
-
-	display: flex;
-	justify-content: center;
-	/*visibility: hidden;*/
-
-	background-color: black;
-	border-top: 2px solid white;
-}
-
-.test-button {
-	width: 100px;
-	height: 30px;
-}
-
-.sfx-audio {
-	visibility: hidden;
-}

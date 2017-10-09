@@ -61,12 +61,16 @@
 	width: 600px;
 }
 
+.selected {
+	border: 6px solid yellow;
+	border-radius: 50%;
+}
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
 
 .object1 {
-	-webkit-transform: translate3d(0, 0, 0);
 	position: absolute;
 	left: 800px;
 	width: 120px;
@@ -82,14 +86,14 @@
 	position: absolute;
 	width: 40px;
 	top: 100px;
-	left: 100px;
+	left: 1800px;
 }
 
 .object3 {
 	position: absolute;
 	width: 100px;
-	top: 300px;
-	left: 300px;
+	top: 200px;
+	left: 1800px;
 }
 
 .interact {

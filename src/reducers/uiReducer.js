@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -13,6 +13,11 @@ export default function uiState(state = initialState.uiState, action) {
 			console.log('SET_PANEL to ' + action.panelIndex);
 			return Object.assign({}, state, {
 				panelIndex: action.panelIndex
+			});
+		case SET_CAMERA:
+			console.log('SET_CAMERA to ' + action.camera);
+			return Object.assign({}, state, {
+				camera: action.camera
 			});
 		default:
 			return state;

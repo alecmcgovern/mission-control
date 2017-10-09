@@ -5,6 +5,9 @@ import * as uiActions from '../actions/uiActions';
 import * as itemActions from '../actions/itemActions';
 import * as consoleActions from '../actions/consoleActions';
 
+import React3 from 'react-three-renderer';
+import * as THREE from 'three';
+
 // Images
 import stars from '../images/stars.jpg';
 import moon from '../images/moon.png';
@@ -15,7 +18,7 @@ import '../css/gameview.css';
 
 function mapStateToProps(state) {
 	return {
-		menuOpen: state.uiState.menuOpen,
+		uiState: state.uiState,
 		itemState: state.itemState,
 		consoleState: state.consoleState
 	};
@@ -29,10 +32,41 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
+class Three extends React.Component {
+	constructor(props, context) {
+		super(props, context);
+		this.cameraPosition = new THREE.Vector3(0,0,5);
+	}
+
+	render() {
+		return(
+			<React3 mainCamera="camera" width={500} height={500}>
+				<scene>
+					<perspectiveCamera name="camera" fox={75} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
+					<mesh>
+						<boxGeometry
+			              width={100}
+			              height={100}
+			              depth={100}
+			            />
+				          <meshBasicMaterial color={0x00ff00}/>
+					</mesh>
+				</scene>
+			</React3>
+		);
+	}
+}
+
 class GameView extends React.Component {
 
 	renderOrbit() {
 		let orbitItems = [];
+
+		if(this.props.uiState.camera === 0) {
+			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>)
+		} else if (this.props.uiState.camera === 1) {
+			orbitItems.push(<Three key={-2}/>);
+		}
 
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 2) {
@@ -41,6 +75,8 @@ class GameView extends React.Component {
 				if(item.itemState === 1) {
 					orbitingItemClassName += " rotating";
 				}
+
+
 				orbitItems.push(
 					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.addItem(item.itemName, 2)} src={item.itemUrl} alt=""></img>
 				)
@@ -77,7 +113,6 @@ class GameView extends React.Component {
 
 				<div className="layer-1">
 					<div className="moon-orbit">
-						<img className="moon" src={moon} alt=""></img>
 						{this.renderOrbit()}
 					</div>
 				</div>

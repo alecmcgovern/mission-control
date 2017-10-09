@@ -31,9 +31,9 @@ class Footer extends React.Component {
 		if (this.props.uiState.camera === 0) {
 			cameraButtonClass += " button-selected";
 		} else if (this.props.uiState.camera === 1) {
-			thermalButtonClass += " button-selected";
-		} else if (this.props.uiState.camera === 2) {
 			gridButtonClass += " button-selected";
+		} else if (this.props.uiState.camera === 2) {
+			thermalButtonClass += " button-selected";
 		}
 
 		return (
@@ -43,8 +43,8 @@ class Footer extends React.Component {
 				</div>
 				<div className="right">
 					<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>
-					<div className={thermalButtonClass} onClick={() => this.props.uiActions.setCamera(1)}>Thermal</div>
-					<div className={gridButtonClass} onClick={() => this.props.uiActions.setCamera(2)}>Grid</div>
+					<div className={gridButtonClass} onClick={() => this.props.uiActions.setCamera(1)}>Grid</div>
+					<div className={thermalButtonClass} onClick={() => this.props.uiActions.setCamera(2)}>Thermal</div>
 				</div>
 
 			</div>

@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as consoleActions from '../actions/consoleActions';
+import * as uiActions from '../actions/uiActions';
+
 
 
 import Typed from 'typed.js';
@@ -11,13 +13,15 @@ import '../css/console.css';
 
 function mapStateToProps(state) {
 	return {
+		uiState: state.uiState,
 		consoleState: state.consoleState
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		consoleActions: bindActionCreators(consoleActions, dispatch)
+		consoleActions: bindActionCreators(consoleActions, dispatch),
+		uiActions: bindActionCreators(uiActions, dispatch)
 	};
 }
 
@@ -84,6 +88,7 @@ class ConsolePanel extends React.Component {
 			case 3:
 				return <div className="text-container">
 					<div className="text1 console-text">{Strings.TEXT_TWO}</div>
+					<div className="start-button" onClick={() => this.props.uiActions.toggleMenu()}>OKAY</div>
 				</div>;
 			default:
 				return 0;

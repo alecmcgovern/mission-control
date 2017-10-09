@@ -78,7 +78,7 @@ class GameView extends React.Component {
 
 
 				orbitItems.push(
-					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.addItem(item.itemName, 2)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.changeItemLocation(item.itemName, 2)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});
@@ -92,7 +92,7 @@ class GameView extends React.Component {
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 0) {
 				gameViewItems.push(
-					<img key={index} className={item.className} onClick={() => this.props.itemActions.addItem(item.itemName, 0)} src={item.itemUrl} alt=""></img>
+					<img key={index} className={item.className} onClick={() => this.props.itemActions.changeItemLocation(item.itemName, 1)} src={item.itemUrl} alt=""></img>
 				)
 			}
 		});

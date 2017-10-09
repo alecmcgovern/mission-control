@@ -1,5 +1,5 @@
 .console {
-	color: green;
+	color: #02fcbd;
 	max-height: 100%;
 	overflow: auto;
 	padding-bottom: 10px;
@@ -37,11 +37,13 @@
 .start-button {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 100px;
-	border: 2px solid green;
+	height: 40px;
+	border: 2px solid #02fcbd;
 	cursor: pointer;
 }
 
 .start-button:hover {
-	background-color: yellow;
+	background-color: #02fcbd;
 }

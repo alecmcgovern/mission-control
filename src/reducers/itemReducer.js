@@ -1,14 +1,14 @@
 import initialState from './initialState';
-import {ADD_ITEM, CHANGE_ITEM_STATE} from '../actions/actionTypes';
+import {CHANGE_ITEM_LOCATION, CHANGE_ITEM_STATE} from '../actions/actionTypes';
 
 export default function itemState(state = initialState.itemState, action) {
 	switch(action.type) {
-		case ADD_ITEM:
-			console.log("ADD_ITEM " + action.item);
+		case CHANGE_ITEM_LOCATION:
+			console.log("CHANGE_ITEM_LOCATION " + action.item);
 			return state.map((item) => {
 				if (item.itemName === action.item.itemName) {
 					return Object.assign({}, item, {
-						itemLocation: 1,
+						itemLocation: action.item.itemLocation,
 					});
 				}
 

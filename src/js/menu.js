@@ -44,8 +44,8 @@ class Menu extends React.Component {
 		return <div className={menuContainerClassName}>
 				{this.buildPanel(this.props.panelIndex)}
 				<div className="bottom-menu">
-					<div className="toggle" onClick={() => this.props.uiActions.setPanel(0)}>console</div>
-					<div className="toggle" onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
+					<div className="console-toggle" onClick={() => this.props.uiActions.setPanel(0)}>console</div>
+					<div className="inventory-toggle" onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
 					{/*<div className="toggle" onClick={() => this.props.uiActions.setPanel(2)}>panel</div>*/}
 				</div>
 			</div>;

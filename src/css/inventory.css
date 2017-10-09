@@ -1,5 +1,5 @@
 .inventory {
-	color: blue;
+	color: #02fcbd;
 }
 
 .inventory-container {
@@ -16,6 +16,8 @@
 	margin: 10px;
 	border: 1px solid white;
 	overflow: hidden;
+
+	cursor: pointer;
 }
 
 .inventory-item-image {

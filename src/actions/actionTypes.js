@@ -5,7 +5,7 @@ export const SET_PANEL = 'SET_PANEL';
 export const SET_CAMERA = 'SET_CAMERA';
 
 // Item Actions
-export const ADD_ITEM = 'ADD_ITEM';
+export const CHANGE_ITEM_LOCATION = 'CHANGE_ITEM_LOCATION';
 export const CHANGE_ITEM_STATE = 'CHANGE_ITEM_STATE';
 
 // Game progess Actions

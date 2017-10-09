@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as itemActions from '../actions/itemActions';
 import * as uiActions from '../actions/uiActions';
+import * as consoleActions from '../actions/consoleActions';
 
 
 import '../css/footer.css';
@@ -10,20 +11,27 @@ import '../css/footer.css';
 function mapStateToProps(state) {
 	return {
 		itemState: state.itemState,
-		uiState: state.uiState
+		uiState: state.uiState,
+		consoleState: state.consoleState
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
 		itemActions: bindActionCreators(itemActions, dispatch),
-		uiActions: bindActionCreators(uiActions, dispatch)
+		uiActions: bindActionCreators(uiActions, dispatch),
+		consoleActions: bindActionCreators(consoleActions, dispatch)
 	};
 }
 
 class Footer extends React.Component {
 
 	render() {
+		let footerCLass = "footer";
+		if(this.props.consoleState.taskNumber > 2) {
+			footerCLass += " footer-open";
+		}
+
 		let cameraButtonClass = "button button-camera";
 		let thermalButtonClass = "button button-thermal";
 		let gridButtonClass = "button button-grid";
@@ -37,9 +45,9 @@ class Footer extends React.Component {
 		}
 
 		return (
-			<div className="footer">
+			<div className={footerCLass}>
 				<div className="left">
-					<div className="button" onClick={() => this.props.itemActions.changeItemState("spinner", 0)}>Rotate</div>
+					<div className="test-button" onClick={() => this.props.itemActions.changeItemState("spinner", 0)}>Rotate</div>
 				</div>
 				<div className="right">
 					<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>

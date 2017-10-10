@@ -7,8 +7,8 @@ import {Provider} from 'react-redux';
 import './css/index.css';
 
 import Footer from './js/footer.js';
-import Menu from './js/menu.js';
-import GameView from './js/gameview.js';
+import Menu from './js/menu/menu.js';
+import GameView from './js/gameview/gameview.js';
 
 const store = configureStore();
 

@@ -2,11 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as uiActions from '../actions/uiActions';
+import * as uiActions from '../../actions/uiActions';
 
-import '../css/menu.css';
-import '../css/scripts.css';
-import '../css/buttons.css';
+import '../../css/menu.css';
+import '../../css/scripts.css';
+import '../../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {
@@ -21,7 +21,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-class ThirdPanel extends React.Component {
+class Scripts extends React.Component {
   	constructor(props) {
     	super(props);
     	this.state = {value: ''};
@@ -59,4 +59,4 @@ class ThirdPanel extends React.Component {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ThirdPanel);
+)(Scripts);

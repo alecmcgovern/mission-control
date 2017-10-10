@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as consoleActions from '../actions/consoleActions';
-import * as uiActions from '../actions/uiActions';
+import * as consoleActions from '../../actions/consoleActions';
+import * as uiActions from '../../actions/uiActions';
 
 
 import Typed from 'typed.js';
-import * as Strings from './strings.js';
+import * as Strings from '../strings.js';
 
-import '../css/console.css';
-import '../css/buttons.css';
+import '../../css/console.css';
+import '../../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {

@@ -1,16 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as uiActions from '../actions/uiActions';
-import * as consoleActions from '../actions/consoleActions';
+import * as uiActions from '../../actions/uiActions';
+import * as consoleActions from '../../actions/consoleActions';
 
 
 import ConsolePanel from './console.js';
 import InventoryPanel from './inventory.js';
-import ThirdPanel from './thirdpanel.js';
+import Scripts from './scripts.js';
 
-import '../css/menu.css';
-import '../css/buttons.css';
+import '../../css/menu.css';
+import '../../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {
@@ -34,7 +34,7 @@ class Menu extends React.Component {
 		} else if (index === 1) {
 			return <InventoryPanel />
 		} else {
-			return <ThirdPanel />
+			return <Scripts />
 		}
 	}
 

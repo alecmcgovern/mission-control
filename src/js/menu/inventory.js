@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as itemActions from '../actions/itemActions';
+import * as itemActions from '../../actions/itemActions';
 
-import '../css/inventory.css';
+import '../../css/inventory.css';
 
 function mapStateToProps(state) {
   return {

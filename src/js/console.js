@@ -9,6 +9,7 @@ import Typed from 'typed.js';
 import * as Strings from './strings.js';
 
 import '../css/console.css';
+import '../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {
@@ -44,8 +45,16 @@ class ConsolePanel extends React.Component {
 		  	onComplete: () => {this.props.consoleActions.goForward()}
 		}
 
-		if (this.props.consoleState.taskNumber % 2 === 0) {
+		let text2 = {
+		  	...typedTextOptions,
+		  	strings: [Strings.TEXT_TWO_TYPED],
+		  	onComplete: () => {this.props.consoleActions.goForward()}
+		}
+
+		if (this.props.consoleState.taskNumber === 0) {
 			this.typed = new Typed(".typed-text", text1);
+		} else if (this.props.consoleState.taskNumber === 2) {
+			this.typed = new Typed(".typed-text", text2);
 		}
 	}
 
@@ -56,7 +65,7 @@ class ConsolePanel extends React.Component {
 		  	onComplete: () => {this.props.consoleActions.goForward()}
 		}
 
-		if (this.props.consoleState.taskNumber % 2 === 0) {
+		if (this.props.consoleState.taskNumber === 2) {
 			this.typed = new Typed(".typed-text", text2);
 		}
 	}
@@ -76,7 +85,7 @@ class ConsolePanel extends React.Component {
 			case 1:
 				return <div className="text-container">
 					<div className="text1 console-text">{Strings.TEXT_ONE}</div>
-					<div className="start-button" onClick={() => this.props.consoleActions.goForward()}>START</div>
+					<div className="button button-hover" onClick={() => this.props.consoleActions.goForward()}>START</div>
 				</div>;
 			case 2:
 				return <div className="text-container">
@@ -85,7 +94,7 @@ class ConsolePanel extends React.Component {
 			case 3:
 				return <div className="text-container">
 					<div className="text1 console-text">{Strings.TEXT_TWO}</div>
-					<div className="start-button" onClick={() => this.props.uiActions.toggleMenu()}>OKAY</div>
+					<div className="button button-hover" onClick={() => this.props.uiActions.toggleMenu()}>OKAY</div>
 				</div>;
 			default:
 				return 0;

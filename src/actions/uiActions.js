@@ -12,3 +12,7 @@ export function setCamera(camera) {
 	return {type: types.SET_CAMERA, camera: camera};
 }
 
+export function toggleTestControls() {
+	return {type: types.TOGGLE_TEST_CONTROLS};
+}
+

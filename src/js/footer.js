@@ -1,12 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
 import * as itemActions from '../actions/itemActions';
 import * as uiActions from '../actions/uiActions';
 import * as consoleActions from '../actions/consoleActions';
 
 
 import '../css/footer.css';
+import '../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {
@@ -44,9 +46,15 @@ class Footer extends React.Component {
 			thermalButtonClass += " button-selected";
 		}
 
+		let testControlsClass = "test-controls";
+
+		if (this.props.uiState.testControls) {
+			testControlsClass += " test-controls-show";
+		}
+
 		return (
 			<div className={footerCLass}>
-				<div className="left">
+				<div className={testControlsClass}>
 					<div className="test-button" onClick={() => this.props.itemActions.changeItemState("spinner", 0)}>Rotate</div>
 				</div>
 				<div className="right">

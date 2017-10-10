@@ -1,0 +1,30 @@
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+
+	cursor: pointer;
+	color: #02fcbd;
+	width: 110px;
+	height: 30px;
+	border-radius: 20px;
+}
+
+.button-selected {
+	border: 1px solid #02fcbd;
+	border-radius: 20px;
+	background-color: rgba(2, 252, 189, 0.5);
+}
+
+.button-hover {
+	border: 1px solid #02fcbd;
+}
+
+.button:hover {
+	border: 1px solid #02fcbd;
+}
+
+.button-hover:hover {
+	background-color: rgba(2, 252, 189, 0.5);
+}

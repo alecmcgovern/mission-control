@@ -10,6 +10,7 @@ import InventoryPanel from './inventory.js';
 import ThirdPanel from './thirdpanel.js';
 
 import '../css/menu.css';
+import '../css/buttons.css';
 
 function mapStateToProps(state) {
 	return {
@@ -40,8 +41,9 @@ class Menu extends React.Component {
 	render() {
 		let menuContainerClassName = "menu-container";
 		let bottomMenuClassName = "bottom-menu";
-		let consoleToggleClass = "console-toggle";
-		let inventoryToggleClass = "inventory-toggle";
+		let consoleButtonClass = "button";
+		let inventoryButtonClass = "button";
+		let scriptsButtonClass = "button";
 
 		if (!this.props.uiState.menuOpen) {
 			menuContainerClassName += " closed";
@@ -52,17 +54,19 @@ class Menu extends React.Component {
 		}
 
 		if (this.props.uiState.panelIndex === 0) {
-			consoleToggleClass += " toggle-selected";
+			consoleButtonClass += " button-selected";
 		} else if (this.props.uiState.panelIndex === 1) {
-			inventoryToggleClass += " toggle-selected";
+			inventoryButtonClass += " button-selected";
+		} else if (this.props.uiState.panelIndex === 2) {
+			scriptsButtonClass += " button-selected";
 		}
 		
 		return <div className={menuContainerClassName}>
 				{this.buildPanel(this.props.uiState.panelIndex)}
 				<div className={bottomMenuClassName}>
-					<div className={consoleToggleClass} onClick={() => this.props.uiActions.setPanel(0)}>console</div>
-					<div className={inventoryToggleClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
-					{/*<div className="toggle" onClick={() => this.props.uiActions.setPanel(2)}>panel</div>*/}
+					<div className={consoleButtonClass} onClick={() => this.props.uiActions.setPanel(0)}>console</div>
+					<div className={scriptsButtonClass} onClick={() => this.props.uiActions.setPanel(2)}>scripts</div>
+					<div className={inventoryButtonClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
 				</div>
 			</div>;
 

@@ -21,12 +21,24 @@
 	margin-bottom: 0;
 }
 
-.left, .right {
+.right {
 	width: 400px;
-	border: 2px solid #02fcbd;
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.test-controls {
+	position: absolute;
+	left: 0;
+	visibility: hidden;
 	padding: 10px;
 	display: flex;
 	justify-content: space-between;
+}
+
+.test-controls-show {
+	visibility: visible;
 }
 
 .test-button {
@@ -40,23 +52,6 @@
 	background-color: grey;
 	border: 2px solid red;
 	color: white;
-}
-
-.button {
-	width: 100px;
-	height: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-
-	background-color: black;
-	border: 2px solid #02fcbd;
-	color: #02fcbd;
-}
-
-.button-selected {
-	background-color: white;
 }
 
 .sfx-audio {

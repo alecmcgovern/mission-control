@@ -6,7 +6,8 @@ export default {
 	uiState: {
 		menuOpen: true,
 		panelIndex: 0,
-		camera: 0
+		camera: 0,
+		testControls: false
 	},
 	
 	itemState: [

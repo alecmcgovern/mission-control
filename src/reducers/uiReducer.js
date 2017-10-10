@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, TOGGLE_TEST_CONTROLS} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -15,11 +15,21 @@ export default function uiState(state = initialState.uiState, action) {
 				panelIndex: action.panelIndex
 			});
 		case SET_CAMERA:
-			console.log('SET_CAMERA to ' + action.camera);
+			console.log('SET_CAMERA to ' + action.camera.type);
 			return Object.assign({}, state, {
-				camera: action.camera
+				camera: {
+					type: action.camera.type,
+					filter: state.camera.filter
+				}
 			});
-
+		case SET_FILTER:
+			console.log('SET_FILTER to ' + action.camera.filter);
+			return Object.assign({}, state, {
+				camera: {
+					type: state.camera.type,
+					filter: action.camera.filter
+				}
+			});
 		case TOGGLE_TEST_CONTROLS:
 			console.log('TOGGLE_TEST_CONTROLS');
 			return Object.assign({}, state, {

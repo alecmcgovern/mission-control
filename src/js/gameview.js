@@ -60,11 +60,11 @@ class GameView extends React.Component {
 	renderOrbit() {
 		let orbitItems = [];
 
-		if(this.props.uiState.camera === 0) {
+		if(this.props.uiState.camera.type === 0) {
 			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>);
-		} else if (this.props.uiState.camera === 1) {
+		} else if (this.props.uiState.camera.type === 1) {
 			orbitItems.push(<Three key={-2}/>);
-		} else if (this.props.uiState.camera === 2) {
+		} else if (this.props.uiState.camera.type === 2) {
 			orbitItems.push(<img key={-3} className="moon" src={moonThermal} alt=""></img>);
 		}
 
@@ -84,6 +84,29 @@ class GameView extends React.Component {
 		});
 
 		return orbitItems;
+	}
+
+	renderControls() {
+		if (this.props.uiState.camera.type === 2) {
+			let filterOneClass = "filter-one";
+			let filterTwoClass = "filter-two";
+			let filterThreeClass = "filter-three";
+
+			if (this.props.uiState.camera.filter === 0) {
+				filterOneClass += " filter-selected";
+			} else if (this.props.uiState.camera.filter === 1) {
+				filterTwoClass += " filter-selected";
+			} else if (this.props.uiState.camera.filter === 2) {
+				filterThreeClass += " filter-selected";
+			}
+
+			return <div className="filter-controls">
+				<div className="filter-header">FILTERS</div>
+				<div className={filterOneClass} onClick={() => this.props.uiActions.setFilter(0)}></div>
+				<div className={filterTwoClass} onClick={() => this.props.uiActions.setFilter(1)}></div>
+				<div className={filterThreeClass} onClick={() => this.props.uiActions.setFilter(2)}></div>
+			</div>
+		}
 	}
 
 	renderItems() {
@@ -116,7 +139,8 @@ class GameView extends React.Component {
 						{this.renderOrbit()}
 					</div>
 				</div>
-					{this.renderItems()}
+				{this.renderItems()}
+				{this.renderControls()}
 				
 				<img className="menu-icon" onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>

@@ -3,6 +3,7 @@
 	display: flex;
 	flex-grow: 1;
 	overflow: auto;
+	font-family: 'Orbitron', sans-serif;
 }
 
 .game-view-overlay {
@@ -106,4 +107,30 @@
 
 .three-scene {
 	background-color: green;
+}
+
+.filter-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	position: fixed;
+	width: 100px;
+	height: 150px;
+	right: 0;
+
+	color: white;
+	background-color: rgba(0,0,0,0);
+}
+
+.filter-one, .filter-two, .filter-three {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	background-color: green;
+}
+
+.filter-selected {
+	border: 2px solid yellow;
 }

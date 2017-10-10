@@ -3,6 +3,7 @@
 export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const SET_PANEL = 'SET_PANEL';
 export const SET_CAMERA = 'SET_CAMERA';
+export const SET_FILTER = 'SET_FILTER';
 
 export const TOGGLE_TEST_CONTROLS = 'TOGGLE_TEST_CONTROLS';
 

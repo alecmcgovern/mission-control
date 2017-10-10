@@ -38,11 +38,11 @@ class Footer extends React.Component {
 		let thermalButtonClass = "button button-thermal";
 		let gridButtonClass = "button button-grid";
 
-		if (this.props.uiState.camera === 0) {
+		if (this.props.uiState.camera.type === 0) {
 			cameraButtonClass += " button-selected";
-		} else if (this.props.uiState.camera === 1) {
+		} else if (this.props.uiState.camera.type === 1) {
 			gridButtonClass += " button-selected";
-		} else if (this.props.uiState.camera === 2) {
+		} else if (this.props.uiState.camera.type === 2) {
 			thermalButtonClass += " button-selected";
 		}
 

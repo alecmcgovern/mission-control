@@ -6,7 +6,10 @@ export default {
 	uiState: {
 		menuOpen: true,
 		panelIndex: 0,
-		camera: 0,
+		camera: {
+			type: 0,
+			filter: 0
+		},
 		testControls: false
 	},
 	
@@ -35,6 +38,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 0
+		taskNumber: 3
 	}
 };

@@ -8,7 +8,7 @@ import * as uiActions from '../../actions/uiActions';
 import Typed from 'typed.js';
 import * as Strings from '../strings.js';
 
-import '../../css/console.css';
+import './console.css';
 import '../../css/buttons.css';
 
 function mapStateToProps(state) {

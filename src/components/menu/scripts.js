@@ -4,8 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import * as uiActions from '../../actions/uiActions';
 
-import '../../css/menu.css';
-import '../../css/scripts.css';
+import './scripts.css';
 import '../../css/buttons.css';
 
 function mapStateToProps(state) {

@@ -9,7 +9,7 @@ import ConsolePanel from './console.js';
 import InventoryPanel from './inventory.js';
 import Scripts from './scripts.js';
 
-import '../../css/menu.css';
+import './menu.css';
 import '../../css/buttons.css';
 
 function mapStateToProps(state) {

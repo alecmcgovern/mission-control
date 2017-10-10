@@ -6,9 +6,9 @@ import {Provider} from 'react-redux';
 
 import './css/index.css';
 
-import Footer from './js/footer.js';
-import Menu from './js/menu/menu.js';
-import GameView from './js/gameview/gameview.js';
+import Footer from './components/footer.js';
+import Menu from './components/menu/menu.js';
+import GameView from './components/gameview/gameview.js';
 
 const store = configureStore();
 

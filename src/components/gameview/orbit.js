@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import moon from '../../images/moon.png';
 import moonThermal from '../../images/moonThermal.png';
 
-import '../../css/gameview.css';
+import './orbit.css';
 
 function mapStateToProps(state) {
 	return {
@@ -29,18 +29,25 @@ function mapDispatchToProps(dispatch) {
 class Three extends React.Component {
 	constructor(props, context) {
 		super(props, context);
-		this.cameraPosition = new THREE.Vector3(0,0,100);
+		this.cameraPosition = new THREE.Vector3(0,0,5);
+	}
+
+	degreeToRadian(degree) {
+		return degree*(Math.PI/180);
 	}
 
 	render() {
 		let divisions = 24;
+		let rotation = new THREE.Euler(this.degreeToRadian(90),this.degreeToRadian(0),this.degreeToRadian(0));
 		return(
-			<React3 mainCamera="camera" width={600} height={600} alpha={true}>
+			<React3 mainCamera="camera" width={600} height={600} alpha={true} onAnimate={this._onAnimate}>
 				<scene>
-					<perspectiveCamera name="camera" fov={75} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
-					<mesh>
-						<sphereGeometry radius={60} widthSegments={divisions} heightSegments={divisions} />
-				          <meshBasicMaterial color={0x00ff00} wireframe={true}/>
+					<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
+					<mesh rotation={rotation}>
+						<sphereGeometry radius={2.1} 
+										widthSegments={divisions} 
+										heightSegments={divisions} />
+				        <meshBasicMaterial color={0x00ff00} wireframe={true}/>
 					</mesh>
 				</scene>
 			</React3>
@@ -58,7 +65,17 @@ class Orbit extends React.Component {
 		} else if (this.props.uiState.camera.type === 1) {
 			orbitItems.push(<Three key={-2}/>);
 		} else if (this.props.uiState.camera.type === 2) {
-			orbitItems.push(<img key={-3} className="moon" src={moonThermal} alt=""></img>);
+			let moonClass = "moon";
+
+			if (this.props.uiState.camera.filter === 0) {
+
+			} else if (this.props.uiState.camera.filter === 1) {
+				moonClass += " filter-1";
+			} else if (this.props.uiState.camera.filter === 2) {
+				moonClass += " filter-2";
+			}
+
+			orbitItems.push(<img key={-3} className={moonClass} src={moonThermal} alt=""></img>);
 		}
 
 		this.props.itemState.forEach((item, index) => {

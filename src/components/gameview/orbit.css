@@ -1,0 +1,55 @@
+.three-scene {
+	
+}
+
+.moon-orbit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 900px;
+	height: 900px;
+
+	-webkit-animation: spin 45s linear infinite;
+	-moz-animation: spin 45s linear infinite;
+	-animation: spin 45s linear infinite;
+
+	-webkit-backface-visibility: hidden;
+}
+
+.moon {
+	-webkit-transform: translate3d(0, 0, 0);
+	width: 600px;
+}
+
+.selected {
+	border: 6px solid yellow;
+	border-radius: 50%;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
+
+.object1 {
+	position: absolute;
+	left: 800px;
+	width: 120px;
+}
+
+.rotating {
+	-webkit-animation: spin 3s linear infinite;
+	-moz-animation: spin 3s linear infinite;
+	-animation: spin 3s linear infinite;
+}
+
+.filter-1 {
+  	-webkit-filter: hue-rotate(180deg);
+	filter: hue-rotate(180deg);
+	-webkit-filter: invert(.8);
+  	filter: invert(.8);
+}
+
+.filter-2 {
+	-webkit-filter: hue-rotate(230deg);
+	filter: hue-rotate(230deg);
+}

@@ -13,7 +13,7 @@ import stars from '../../images/stars.jpg';
 import menuIcon from '../../images/menu-icon.png';
 
 
-import '../../css/gameview.css';
+import './gameview.css';
 
 function mapStateToProps(state) {
 	return {

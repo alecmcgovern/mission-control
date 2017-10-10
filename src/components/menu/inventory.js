@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as itemActions from '../../actions/itemActions';
 
-import '../../css/inventory.css';
+import './inventory.css';
 
 function mapStateToProps(state) {
   return {

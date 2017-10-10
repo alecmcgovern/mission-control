@@ -43,46 +43,6 @@
 	position: absolute;
 }
 
-.moon-orbit {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 900px;
-	height: 900px;
-
-	-webkit-animation: spin 45s linear infinite;
-	-moz-animation: spin 45s linear infinite;
-	-animation: spin 45s linear infinite;
-
-	-webkit-backface-visibility: hidden;
-}
-
-.moon {
-	-webkit-transform: translate3d(0, 0, 0);
-	width: 600px;
-}
-
-.selected {
-	border: 6px solid yellow;
-	border-radius: 50%;
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
-
-.object1 {
-	position: absolute;
-	left: 800px;
-	width: 120px;
-}
-
-.rotating {
-	-webkit-animation: spin 3s linear infinite;
-	-moz-animation: spin 3s linear infinite;
-	-animation: spin 3s linear infinite;
-}
-
 .object2 {
 	position: absolute;
 	width: 40px;
@@ -105,10 +65,6 @@
 	visibility: hidden;
 }
 
-.three-scene {
-	background-color: green;
-}
-
 .filter-controls {
 	display: flex;
 	flex-direction: column;
@@ -118,6 +74,7 @@
 	position: fixed;
 	width: 100px;
 	height: 150px;
+	top: 10px;
 	right: 0;
 
 	color: white;
@@ -128,9 +85,19 @@
 	cursor: pointer;
 	width: 30px;
 	height: 30px;
-	background-color: green;
 }
 
+.filter-one {
+	background-color: #FC0D1B;
+}
+
+.filter-two {
+	background-color: #35C4BC;
+}
+
+.filter-three {
+	background-color: #004BE6;
+}
 .filter-selected {
-	border: 2px solid yellow;
+	border: 2px solid white;
 }

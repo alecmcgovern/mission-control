@@ -7,7 +7,7 @@ import * as uiActions from '../actions/uiActions';
 import * as consoleActions from '../actions/consoleActions';
 
 
-import '../css/footer.css';
+import './footer.css';
 import '../css/buttons.css';
 
 function mapStateToProps(state) {

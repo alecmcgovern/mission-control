@@ -4,10 +4,10 @@ import object3 from '../images/object3.png';
 
 export default {
 	uiState: {
-		menuOpen: false,
+		menuOpen: true,
 		panelIndex: 0,
 		camera: {
-			type: 1,
+			type: 0,
 			filter: 0
 		},
 		testControls: false
@@ -38,6 +38,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 3
+		taskNumber: 0
 	}
 };

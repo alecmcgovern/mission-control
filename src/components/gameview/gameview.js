@@ -71,6 +71,12 @@ class GameView extends React.Component {
 		return gameViewItems;
 	}
 
+	centerScroll() {
+		let gameview = this.refs.gameviewElement;
+		gameview.scrollTop = (gameview.scrollHeight - gameview.clientHeight)/2;
+		gameview.scrollLeft = (gameview.scrollWidth - gameview.clientWidth)/2;
+	}
+
 	render() {
 		let overlayClassName = "game-view-overlay";
 
@@ -78,7 +84,11 @@ class GameView extends React.Component {
 			overlayClassName += " hide";
 		}
 
-		return <div className="game-view">
+		if (this.props.consoleState.taskNumber === 2) {
+			this.centerScroll();
+		}
+
+		return <div className="game-view" ref="gameviewElement">
 				<div className={overlayClassName}></div>
 				<img className="background-image" src={stars} alt=""></img>
 

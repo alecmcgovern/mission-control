@@ -44,11 +44,15 @@ class Scripts extends React.Component {
 		this.setState({ value: '' });
 	}
 
+	componentDidMount() {
+		this.refs.textarea.focus();
+	}
+
 	render () {
 		return <div className="scripts">
 			<div className="scripts-panel-header">Scripts</div>
 			<div className="scripts-form">
-				<input className="scripts-input" type="text" value={this.state.value} onChange={this.handleChange} />
+				<textarea className="scripts-input" type="text" value={this.state.value} onChange={this.handleChange} ref="textarea"/>
 				<div className="button" onClick={this.handleSubmit} type="submit" value="Submit" >Submit</div>
 			</div>
 		</div>;

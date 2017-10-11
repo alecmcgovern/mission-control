@@ -9,6 +9,7 @@ import * as THREE from 'three';
 
 import moon from '../../images/moon.png';
 import moonThermal from '../../images/moonThermal.png';
+import hiddenText1 from '../../images/hiddenText1.png';
 
 import './orbit.css';
 
@@ -76,6 +77,10 @@ class Orbit extends React.Component {
 			}
 
 			orbitItems.push(<img key={-3} className={moonClass} src={moonThermal} alt=""></img>);
+
+			if (this.props.itemState[2].itemLocation === 1) {
+				orbitItems.push(<img key={-4} className="hiddenText1" src={hiddenText1} alt=""></img>);
+			}
 		}
 
 		this.props.itemState.forEach((item, index) => {

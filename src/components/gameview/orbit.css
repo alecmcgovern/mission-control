@@ -21,14 +21,16 @@
 	width: 600px;
 }
 
-.selected {
-	border: 6px solid yellow;
-	border-radius: 50%;
-}
-
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
+
+
+.hiddenText1 {
+	position: absolute;
+	width: 600px;
+	border-radius: 300px;
+}
 
 .object1 {
 	position: absolute;
@@ -43,10 +45,8 @@
 }
 
 .filter-1 {
-  	-webkit-filter: hue-rotate(180deg);
-	filter: hue-rotate(180deg);
-	-webkit-filter: invert(.8);
-  	filter: invert(.8);
+	-webkit-filter: invert(1);
+  	filter: invert(1);
 }
 
 .filter-2 {

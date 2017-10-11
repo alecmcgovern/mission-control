@@ -1,0 +1,37 @@
+.filter-controls-container {
+
+}
+
+.filter-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	position: fixed;
+	width: 100px;
+	height: 150px;
+	top: 10px;
+	right: 0;
+
+	color: white;
+	background-color: rgba(0,0,0,0);
+}
+
+.filter-one, .filter-two, .filter-three {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+
+.filter-one {
+	background-color: #FC0D1B;
+}
+
+.filter-two {
+	background-color: #35C4BC;
+}
+
+.filter-selected {
+	border: 2px solid white;
+}

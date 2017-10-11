@@ -19,6 +19,8 @@
 .moon {
 	-webkit-transform: translate3d(0, 0, 0);
 	width: 600px;
+
+	transition: filter 0.8s linear;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
@@ -47,9 +49,4 @@
 .filter-1 {
 	-webkit-filter: invert(1);
   	filter: invert(1);
-}
-
-.filter-2 {
-	-webkit-filter: hue-rotate(230deg);
-	filter: hue-rotate(230deg);
 }

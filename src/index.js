@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 
-
-import './css/index.css';
-
 import Footer from './components/footer.js';
 import Menu from './components/menu/menu.js';
 import GameView from './components/gameview/gameview.js';
+
+import './css/index.css';
 
 const store = configureStore();
 

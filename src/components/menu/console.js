@@ -4,12 +4,13 @@ import {bindActionCreators} from 'redux';
 import * as consoleActions from '../../actions/consoleActions';
 import * as uiActions from '../../actions/uiActions';
 
-
 import Typed from 'typed.js';
 import * as Strings from '../strings.js';
 
 import './console.css';
 import '../../css/buttons.css';
+
+import beep from '../../audio/beep.mp3';
 
 function mapStateToProps(state) {
 	return {
@@ -76,6 +77,16 @@ class ConsolePanel extends React.Component {
 		}
 	}
 
+	goForward() {
+		this.refs.consoleAudio.play();
+		this.props.consoleActions.goForward();
+	}
+
+	toggleMenu() {
+		this.refs.consoleAudio.play();
+		this.props.uiActions.toggleMenu();
+	}
+
 	renderText() {		
 		switch(this.props.consoleState.taskNumber) {
 			case 0:
@@ -85,7 +96,7 @@ class ConsolePanel extends React.Component {
 			case 1:
 				return <div className="text-container">
 					<div className="text1 console-text">{Strings.TEXT_ONE}</div>
-					<div className="button button-hover" onClick={() => this.props.consoleActions.goForward()}>START</div>
+					<div className="button button-hover" onClick={() => this.goForward()}>START</div>
 				</div>;
 			case 2:
 				return <div className="text-container">
@@ -94,7 +105,7 @@ class ConsolePanel extends React.Component {
 			case 3:
 				return <div className="text-container">
 					<div className="text1 console-text">{Strings.TEXT_TWO}</div>
-					<div className="button button-hover" onClick={() => this.props.uiActions.toggleMenu()}>OKAY</div>
+					<div className="button button-hover" onClick={() => this.toggleMenu()}>OKAY</div>
 				</div>;
 			default:
 				return 0;
@@ -103,6 +114,11 @@ class ConsolePanel extends React.Component {
 
 	render () {
 		return <div className="console">
+				<div className="audio-container">
+					<audio controls ref="consoleAudio" className="audio-player">
+						<source src={beep} />
+					</audio>
+				</div>
 			{this.renderText()}
 		</div>;
 	}

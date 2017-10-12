@@ -3,7 +3,7 @@
 	flex-direction: column;
 
 	padding: 20px;
-	width: 400px;
+	width: 380px;
 	margin-left: 0px;
 	background-color: black;
 	border-right: 2px solid white;
@@ -16,7 +16,7 @@
 }
 
 .menu-container.closed {
-	margin-left: -400px;
+	margin-left: -380px;
 }
 
 .console, .inventory, .scripts {

@@ -55,7 +55,7 @@ class Three extends React.Component {
 						<sphereGeometry radius={2.1} 
 										widthSegments={divisions} 
 										heightSegments={divisions} />
-				        <meshBasicMaterial color={0x00ff00} wireframe={true}/>
+				        <meshBasicMaterial color={0x02fcbd} wireframe={true}/>
 					</mesh>
 				</scene>
 			</React3>

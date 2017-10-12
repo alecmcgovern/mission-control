@@ -66,16 +66,9 @@ class ConsolePanel extends React.Component {
 		  	onComplete: () => {this.props.consoleActions.goForward()}
 		}
 
-		let text3 = {
-		  	...typedTextOptions,
-		  	strings: [Strings.TEXT_THREE_TYPED]
-		}
-
 		if (this.props.consoleState.taskNumber === 2) {
 			this.typed = new Typed(".typed-text", text2);
-		} else if (this.props.consoleState.taskNumber === 4 ) {
-			this.typed = new Typed(".typed-text", text3);
-		} 
+		}
 	}
 
 	componentWillUnmount() {
@@ -115,10 +108,6 @@ class ConsolePanel extends React.Component {
 					<div className="console-text">{Strings.TEXT_TWO}</div>
 				</div>;
 
-			case 4:
-				return <div className="text-container">
-					<div className="typed-text console-text"></div>
-				</div>;
 			default:
 				return 0;
 		}

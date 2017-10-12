@@ -11,6 +11,14 @@
 	border-radius: 20px;
 }
 
+.button-border {
+	border: 1px solid #02fcbd;
+}
+
+.button-border:hover {
+	background-color: rgba(2, 252, 189, 0.5);
+}
+
 .button-selected {
 	border: 1px solid #02fcbd;
 	border-radius: 20px;

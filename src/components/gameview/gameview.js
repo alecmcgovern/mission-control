@@ -43,7 +43,6 @@ class GameView extends React.Component {
 	}
 
 	addItemToInventory(item) {
-		this.props.consoleActions.goForward();
 		this.props.itemActions.changeItemLocation(item.itemName, 1);	
 	}
 

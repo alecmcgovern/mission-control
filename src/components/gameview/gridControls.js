@@ -99,11 +99,13 @@ class GridControls extends React.Component {
 
 	render() {
 		let freezeText;
+		let freezeButtonClass = "button";
 
 		if (this.props.uiState.moonSpin) {
 			freezeText = "Freeze";
 		} else {
 			freezeText = "Unfreeze";
+			freezeButtonClass += " button-selected";
 		}
 		return <div className="grid-controls-container">
 			<div className="grid-control-x-group">
@@ -151,7 +153,7 @@ class GridControls extends React.Component {
 					+
 				</div>
 			</div>
-			<div className="freeze-button button" onClick={() => this.props.uiActions.toggleMoonSpin()}>{freezeText}</div>
+			<div className={freezeButtonClass} onClick={() => this.props.uiActions.toggleMoonSpin()}>{freezeText}</div>
 		</div>
 	}
 }

@@ -42,6 +42,11 @@ class GameView extends React.Component {
 		}
 	}
 
+	addItemToInventory(item) {
+		this.props.consoleActions.goForward();
+		this.props.itemActions.changeItemLocation(item.itemName, 1);	
+	}
+
 	renderItems() {
 		let gameViewItems = [];
 
@@ -50,7 +55,7 @@ class GameView extends React.Component {
 			this.props.itemState.forEach((item, index) => {
 				if(item.itemLocation === 0) {
 					gameViewItems.push(
-						<img key={index} className={item.className} onClick={() => this.props.itemActions.changeItemLocation(item.itemName, 1)} src={item.itemUrl} alt=""></img>
+						<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
 					)
 				}
 			});

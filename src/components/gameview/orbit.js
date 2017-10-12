@@ -30,6 +30,9 @@ function mapDispatchToProps(dispatch) {
 class Three extends React.Component {
 	constructor(props, context) {
 		super(props, context);
+
+		this.state = {rotationUp: this.degreeToRadian(90), rotationLR: this.degreeToRadian(0)};
+
 		this.cameraPosition = new THREE.Vector3(0,0,5);
 	}
 
@@ -37,11 +40,33 @@ class Three extends React.Component {
 		return degree*(Math.PI/180);
 	}
 
+	componentDidMount() {
+		this.rotationInterval = setInterval(this.rotate.bind(this), 50);
+	}
+	
+	componentWillUnmount() {
+		clearInterval(this.rotationInterval);
+	}
+
+	rotate() {
+		if (this.props.rotationType === "UP") {
+			this.setState({ rotationUp: this.state.rotationUp - this.degreeToRadian(1)})
+		} else if (this.props.rotationType === "DOWN") {
+			this.setState({ rotationUp: this.state.rotationUp + this.degreeToRadian(1)})
+		} else if (this.props.rotationType === "LEFT") {
+			this.setState({ rotationLR: this.state.rotationLR - this.degreeToRadian(1)})
+		} else if (this.props.rotationType === "RIGHT") {
+			this.setState({ rotationLR: this.state.rotationLR + this.degreeToRadian(1)})
+		}
+	}
+
+
 	render() {
 		let divisions = 24;
-		let rotation = new THREE.Euler(this.degreeToRadian(90),this.degreeToRadian(0),this.degreeToRadian(0));
+		let rotation = new THREE.Euler(this.state.rotationUp, this.degreeToRadian(0), this.state.rotationLR);
+
 		return(
-			<React3 mainCamera="camera" width={600} height={600} alpha={true} onAnimate={this._onAnimate}>
+			<React3 mainCamera="camera" width={600} height={600} alpha={true}>
 				<scene>
 					<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
 					<mesh rotation={rotation}>
@@ -64,7 +89,7 @@ class Orbit extends React.Component {
 		if(this.props.uiState.camera.type === 0) {
 			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>);
 		} else if (this.props.uiState.camera.type === 1) {
-			orbitItems.push(<Three key={-2}/>);
+			orbitItems.push(<Three key={-2} rotationType={this.props.uiState.rotationType}/>);
 		} else if (this.props.uiState.camera.type === 2) {
 			let moonClass = "moon";
 

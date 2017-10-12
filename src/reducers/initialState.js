@@ -10,6 +10,7 @@ export default {
 			type: 0,
 			filter: 0
 		},
+		rotationType: "",
 		testControls: false
 	},
 	

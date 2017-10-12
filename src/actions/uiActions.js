@@ -20,3 +20,6 @@ export function toggleTestControls() {
 	return {type: types.TOGGLE_TEST_CONTROLS};
 }
 
+export function rotateGrid(rotationType) {
+	return {type: types.ROTATE_GRID, rotationType: rotationType};
+}

@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_GRID} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -29,6 +29,11 @@ export default function uiState(state = initialState.uiState, action) {
 					type: state.camera.type,
 					filter: action.camera.filter
 				}
+			});
+		case ROTATE_GRID:
+			console.log('ROTATE_GRID ' + action.rotationType);
+			return Object.assign({}, state, {
+				rotationType: action.rotationType
 			});
 		case TOGGLE_TEST_CONTROLS:
 			console.log('TOGGLE_TEST_CONTROLS');

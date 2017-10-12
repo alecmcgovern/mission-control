@@ -2,6 +2,7 @@ import object1 from '../images/object1.png';
 import object2 from '../images/object2.png';
 import object3 from '../images/object3.png';
 
+
 export default {
 	uiState: {
 		menuOpen: true,
@@ -10,7 +11,12 @@ export default {
 			type: 0,
 			filter: 0
 		},
-		rotationType: "",
+		rotation: {
+			x: 90,
+			y: 0,
+			z: 0
+		},
+		moonSpin: true,
 		testControls: false
 	},
 	

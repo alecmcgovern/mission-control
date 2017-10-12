@@ -4,7 +4,12 @@ export const TOGGLE_MENU = 'TOGGLE_MENU';
 export const SET_PANEL = 'SET_PANEL';
 export const SET_CAMERA = 'SET_CAMERA';
 export const SET_FILTER = 'SET_FILTER';
-export const ROTATE_GRID = 'ROTATE_GRID';
+
+export const MOON_SPIN = 'MOON_SPIN';
+export const ROTATE_X = 'ROTATE_X';
+export const ROTATE_Y = 'ROTATE_Y';
+export const ROTATE_Z = 'ROTATE_Z';
+
 
 export const TOGGLE_TEST_CONTROLS = 'TOGGLE_TEST_CONTROLS';
 

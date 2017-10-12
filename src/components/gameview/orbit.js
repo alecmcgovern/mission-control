@@ -31,8 +31,6 @@ class Three extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 
-		this.state = {rotationUp: this.degreeToRadian(90), rotationLR: this.degreeToRadian(0)};
-
 		this.cameraPosition = new THREE.Vector3(0,0,5);
 	}
 
@@ -40,30 +38,14 @@ class Three extends React.Component {
 		return degree*(Math.PI/180);
 	}
 
-	componentDidMount() {
-		this.rotationInterval = setInterval(this.rotate.bind(this), 50);
-	}
-	
-	componentWillUnmount() {
-		clearInterval(this.rotationInterval);
-	}
-
-	rotate() {
-		if (this.props.rotationType === "UP") {
-			this.setState({ rotationUp: this.state.rotationUp - this.degreeToRadian(1)})
-		} else if (this.props.rotationType === "DOWN") {
-			this.setState({ rotationUp: this.state.rotationUp + this.degreeToRadian(1)})
-		} else if (this.props.rotationType === "LEFT") {
-			this.setState({ rotationLR: this.state.rotationLR - this.degreeToRadian(1)})
-		} else if (this.props.rotationType === "RIGHT") {
-			this.setState({ rotationLR: this.state.rotationLR + this.degreeToRadian(1)})
-		}
-	}
-
 
 	render() {
 		let divisions = 24;
-		let rotation = new THREE.Euler(this.state.rotationUp, this.degreeToRadian(0), this.state.rotationLR);
+		const xRadians = this.degreeToRadian(this.props.rotation.x);
+		const yRadians = this.degreeToRadian(this.props.rotation.y);
+		const zRadians = this.degreeToRadian(this.props.rotation.z);
+		
+		let rotation = new THREE.Euler(xRadians, yRadians, zRadians);
 
 		return(
 			<React3 mainCamera="camera" width={600} height={600} alpha={true}>
@@ -89,7 +71,12 @@ class Orbit extends React.Component {
 		if(this.props.uiState.camera.type === 0) {
 			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>);
 		} else if (this.props.uiState.camera.type === 1) {
-			orbitItems.push(<Three key={-2} rotationType={this.props.uiState.rotationType}/>);
+			let gridViewClass = "grid-view-container";
+
+			if (!this.props.uiState.moonSpin) {
+				gridViewClass += " reverseSpin";
+			}
+			orbitItems.push(<div key={-2} className={gridViewClass}><Three className={gridViewClass} rotation={this.props.uiState.rotation}/></div>);
 		} else if (this.props.uiState.camera.type === 2) {
 			let moonClass = "moon";
 
@@ -115,7 +102,6 @@ class Orbit extends React.Component {
 				if(item.itemState === 1) {
 					orbitingItemClassName += " rotating";
 				}
-
 
 				orbitItems.push(
 					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.changeItemLocation(item.itemName, 2)} src={item.itemUrl} alt=""></img>

@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_GRID} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_X, ROTATE_Y, ROTATE_Z, MOON_SPIN} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -30,11 +30,42 @@ export default function uiState(state = initialState.uiState, action) {
 					filter: action.camera.filter
 				}
 			});
-		case ROTATE_GRID:
-			console.log('ROTATE_GRID ' + action.rotationType);
+
+
+		case MOON_SPIN:
+			console.log('MOON_SPIN ' + !state.moonSpin);
 			return Object.assign({}, state, {
-				rotationType: action.rotationType
+				moonSpin: !state.moonSpin
 			});
+		case ROTATE_X:
+			console.log('ROTATE_X ' + action.degrees);
+			return Object.assign({}, state, {
+				rotation: {
+					x: action.degrees,
+					y: state.rotation.y,
+					z: state.rotation.z
+				}
+			});
+		case ROTATE_Y:
+			console.log('ROTATE_Y ' + action.degrees);
+			return Object.assign({}, state, {
+				rotation: {
+					x: state.rotation.x,
+					y: action.degrees,
+					z: state.rotation.z
+				}
+			});
+		case ROTATE_Z:
+			console.log('ROTATE_Z ' + action.degrees);
+			return Object.assign({}, state, {
+				rotation: {
+					x: state.rotation.x,
+					y: state.rotation.y,
+					z: action.degrees
+				}	
+			});
+
+
 		case TOGGLE_TEST_CONTROLS:
 			console.log('TOGGLE_TEST_CONTROLS');
 			return Object.assign({}, state, {

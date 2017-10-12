@@ -8,17 +8,29 @@
 	right: 0;
 	top: 0;
 	width: 150px;
-	height: 150px;
+	height: 200px;
 
 	border-left: 2px solid white;
 	border-bottom: 2px solid white;
 	background-color: rgba(100, 100, 100, 0.5);
 }
 
-.grid-control-x-group, .grid-control-y-group {
+.grid-control-x-group, .grid-control-y-group, .grid-control-z-group {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	width: 100%;
+}
+
+.x-value, .y-value, .z-value {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 45px;
+	height: 34px;
+	border: 2px solid black;
+	box-sizing: border-box;
 }
 
 .grid-control {
@@ -27,8 +39,9 @@
 	align-items: center;
 
 	border: 2px solid black;
-	width: 30px;
-	height: 30px;
+	box-sizing: border-box;
+	width: 34px;
+	height: 34px;
 	cursor: pointer;
 }
 

@@ -20,6 +20,19 @@ export function toggleTestControls() {
 	return {type: types.TOGGLE_TEST_CONTROLS};
 }
 
-export function rotateGrid(rotationType) {
-	return {type: types.ROTATE_GRID, rotationType: rotationType};
+export function toggleMoonSpin() {
+	return {type: types.MOON_SPIN};
 }
+
+export function setRotateX(degrees) {
+	return {type: types.ROTATE_X, degrees: degrees};
+}
+
+export function setRotateY(degrees) {
+	return {type: types.ROTATE_Y, degrees: degrees};
+}
+
+export function setRotateZ(degrees) {
+	return {type: types.ROTATE_Z, degrees: degrees};
+}
+

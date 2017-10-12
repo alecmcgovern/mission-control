@@ -20,7 +20,7 @@
 	-webkit-transform: translate3d(0, 0, 0);
 	width: 600px;
 
-	transition: filter 0.8s linear;
+	transition: filter 0.5s linear;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }

@@ -113,7 +113,7 @@ class GridControls extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="x-value">{this.props.uiState.rotation.x}</div>
+				<div className="x-value">{this.props.uiState.rotation.x}&deg;</div>
 				<div className="grid-control" 
 					onMouseDown={() => this.setRotationInterval(1)}
 					onMouseUp={() => this.clearRotationInterval()}
@@ -128,7 +128,7 @@ class GridControls extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="y-value">{this.props.uiState.rotation.y}</div>
+				<div className="y-value">{this.props.uiState.rotation.y}&deg;</div>
 				<div className="grid-control" 
 					onMouseDown={() => this.setRotationInterval(3)}
 					onMouseUp={() => this.clearRotationInterval()}
@@ -143,7 +143,7 @@ class GridControls extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="z-value">{this.props.uiState.rotation.z}</div>
+				<div className="z-value">{this.props.uiState.rotation.z}&deg;</div>
 				<div className="grid-control" 
 					onMouseDown={() => this.setRotationInterval(5)}
 					onMouseUp={() => this.clearRotationInterval()}

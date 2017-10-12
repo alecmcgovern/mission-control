@@ -29,8 +29,9 @@
 
 	width: 45px;
 	height: 34px;
-	border: 2px solid black;
 	box-sizing: border-box;
+
+	color: white;
 }
 
 .grid-control {
@@ -38,7 +39,8 @@
 	justify-content: center;
 	align-items: center;
 
-	border: 2px solid black;
+	border: 1px solid #02fcbd;
+	color: #02fcbd;
 	box-sizing: border-box;
 	width: 34px;
 	height: 34px;

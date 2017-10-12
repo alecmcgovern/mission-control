@@ -78,12 +78,12 @@ class ConsolePanel extends React.Component {
 	}
 
 	goForward() {
-		this.refs.consoleAudio.play();
+		// this.refs.consoleAudio.play();
 		this.props.consoleActions.goForward();
 	}
 
 	toggleMenu() {
-		this.refs.consoleAudio.play();
+		// this.refs.consoleAudio.play();
 		this.props.uiActions.toggleMenu();
 	}
 

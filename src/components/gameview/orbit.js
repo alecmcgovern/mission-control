@@ -10,6 +10,7 @@ import * as THREE from 'three';
 import moon from '../../images/moon.png';
 import moonThermal from '../../images/moonThermal.png';
 import hiddenText1 from '../../images/hiddenText1.png';
+import mars from '../../images/marsmap1k.jpg';
 
 import './orbit.css';
 
@@ -38,9 +39,10 @@ class Three extends React.Component {
 		return degree*(Math.PI/180);
 	}
 
-
 	render() {
-		let divisions = 24;
+		let divisions;
+
+		this.props.wireframe ? divisions = 24 : divisions = 48;
 		const xRadians = this.degreeToRadian(this.props.rotation.x);
 		const yRadians = this.degreeToRadian(this.props.rotation.y);
 		const zRadians = this.degreeToRadian(this.props.rotation.z);
@@ -48,17 +50,19 @@ class Three extends React.Component {
 		let rotation = new THREE.Euler(xRadians, yRadians, zRadians);
 
 		return(
-			<React3 mainCamera="camera" width={600} height={600} alpha={true}>
-				<scene>
-					<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
-					<mesh rotation={rotation}>
-						<sphereGeometry radius={2.1} 
-										widthSegments={divisions} 
-										heightSegments={divisions} />
-				        <meshBasicMaterial color={0x02fcbd} wireframe={true}/>
-					</mesh>
-				</scene>
-			</React3>
+				<React3 mainCamera="camera" width={600} height={600} alpha={true}>
+					<scene>
+						<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
+						<mesh rotation={rotation}>
+							<sphereGeometry radius={2.1} 
+											widthSegments={divisions} 
+											heightSegments={divisions} />
+							<meshBasicMaterial wireframe={this.props.wireframe}>
+								<texture minFilter={THREE.LinearFilter} url={mars}/>
+							</meshBasicMaterial>
+						</mesh>
+					</scene>
+				</React3>
 		);
 	}
 }
@@ -68,15 +72,18 @@ class Orbit extends React.Component {
 	renderOrbit() {
 		let orbitItems = [];
 
-		if(this.props.uiState.camera.type === 0) {
-			orbitItems.push(<img key={-1} className="moon" src={moon} alt=""></img>);
-		} else if (this.props.uiState.camera.type === 1) {
+		if(this.props.uiState.camera.type !== 2) {
 			let gridViewClass = "grid-view-container";
 
 			if (!this.props.uiState.moonSpin) {
 				gridViewClass += " reverseSpin";
 			}
-			orbitItems.push(<div key={-2} className={gridViewClass}><Three className={gridViewClass} rotation={this.props.uiState.rotation}/></div>);
+
+			let wireframe = false;
+			if (this.props.uiState.camera.type === 1) {
+				wireframe = true;
+			}
+			orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} wireframe={wireframe}/></div>);
 		} else if (this.props.uiState.camera.type === 2) {
 			let moonClass = "moon";
 

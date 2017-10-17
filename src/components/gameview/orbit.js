@@ -7,10 +7,11 @@ import * as itemActions from '../../actions/itemActions';
 import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
-import moon from '../../images/moon.png';
-import moonThermal from '../../images/moonThermal.png';
 import hiddenText1 from '../../images/hiddenText1.png';
 import mars from '../../images/marsmap1k.jpg';
+import grid from '../../images/gridcolor.png';
+import filter1 from '../../images/marsmapthermal1.jpg';
+import filter2 from '../../images/marsmapthermal2.jpg';
 
 import './orbit.css';
 
@@ -40,14 +41,28 @@ class Three extends React.Component {
 	}
 
 	render() {
-		let divisions;
-
-		this.props.wireframe ? divisions = 24 : divisions = 48;
 		const xRadians = this.degreeToRadian(this.props.rotation.x);
 		const yRadians = this.degreeToRadian(this.props.rotation.y);
 		const zRadians = this.degreeToRadian(this.props.rotation.z);
 		
 		let rotation = new THREE.Euler(xRadians, yRadians, zRadians);
+
+		let divisions;
+		let imageTexture;
+		let wireframe = false;
+
+		if (this.props.cameraType === 0 ) {
+			imageTexture = mars;
+			divisions = 48;
+		} else if (this.props.cameraType === 1) {
+			imageTexture = grid;
+			wireframe = true;
+			divisions = 24;
+		} else if (this.props.cameraType === 2) {
+			this.props.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
+			divisions = 48;
+		}
+
 
 		return(
 				<React3 mainCamera="camera" width={600} height={600} alpha={true}>
@@ -57,8 +72,8 @@ class Three extends React.Component {
 							<sphereGeometry radius={2.1} 
 											widthSegments={divisions} 
 											heightSegments={divisions} />
-							<meshBasicMaterial wireframe={this.props.wireframe}>
-								<texture minFilter={THREE.LinearFilter} url={mars}/>
+							<meshBasicMaterial wireframe={wireframe}>
+								<texture minFilter={THREE.LinearFilter} wrapS={THREE.RepeatWrapping} wrapT={THREE.RepeatWrapping} url={imageTexture}/>
 							</meshBasicMaterial>
 						</mesh>
 					</scene>
@@ -72,35 +87,22 @@ class Orbit extends React.Component {
 	renderOrbit() {
 		let orbitItems = [];
 
-		if(this.props.uiState.camera.type !== 2) {
-			let gridViewClass = "grid-view-container";
+		let gridViewClass = "grid-view-container";
 
-			if (!this.props.uiState.moonSpin) {
-				gridViewClass += " reverseSpin";
-			}
-
-			let wireframe = false;
-			if (this.props.uiState.camera.type === 1) {
-				wireframe = true;
-			}
-			orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} wireframe={wireframe}/></div>);
-		} else if (this.props.uiState.camera.type === 2) {
-			let moonClass = "moon";
-
-			if (this.props.uiState.camera.filter === 0) {
-
-			} else if (this.props.uiState.camera.filter === 1) {
-				moonClass += " filter-1";
-			} else if (this.props.uiState.camera.filter === 2) {
-				moonClass += " filter-2";
-			}
-
-			orbitItems.push(<img key={-3} className={moonClass} src={moonThermal} alt=""></img>);
-
-			if (this.props.itemState[2].itemLocation === 1) {
-				orbitItems.push(<img key={-4} className="hiddenText1" src={hiddenText1} alt=""></img>);
-			}
+		if (!this.props.uiState.moonSpin) {
+			gridViewClass += " reverseSpin";
 		}
+
+		let wireframe = false;
+		if (this.props.uiState.camera.type === 1) {
+			wireframe = true;
+		}
+
+		let thermal = 0;
+		if (this.props.uiState.camera.type === 2) {
+			thermal = this.props.uiState.camera.filter;
+		}
+		orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} cameraType={this.props.uiState.camera.type} filter={this.props.uiState.camera.filter}/></div>);
 
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 2) {

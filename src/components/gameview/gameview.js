@@ -37,8 +37,6 @@ class GameView extends React.Component {
 	renderControls() {
 		if (this.props.uiState.camera.type === 2) {
 			return <FilterControls />
-		} else {
-			return <GridControls />
 		}
 	}
 
@@ -100,6 +98,7 @@ class GameView extends React.Component {
 				</div>
 				{this.renderItems()}
 				{this.renderControls()}
+				<GridControls />
 				<img className="menu-icon" onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}

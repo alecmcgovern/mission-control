@@ -8,7 +8,7 @@ export default {
 		menuOpen: true,
 		panelIndex: 0,
 		camera: {
-			type: 1,
+			type: 0,
 			filter: 0
 		},
 		rotation: {

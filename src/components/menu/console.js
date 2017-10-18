@@ -10,8 +10,6 @@ import * as Strings from '../strings.js';
 import './console.css';
 import '../../css/buttons.css';
 
-import beep from '../../audio/beep.mp3';
-
 function mapStateToProps(state) {
 	return {
 		uiState: state.uiState,
@@ -114,12 +112,7 @@ class ConsolePanel extends React.Component {
 	}
 
 	render () {
-		return <div>
-				<div className="audio-container">
-					<audio controls ref="consoleAudio" className="audio-player">
-						<source src={beep} />
-					</audio>
-				</div>
+		return <div className="console-text-container">
 			{this.renderText()}
 		</div>;
 	}

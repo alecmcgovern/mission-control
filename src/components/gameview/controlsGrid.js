@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiActions from '../../actions/uiActions';
+import * as consoleActions from '../../actions/consoleActions';
 
 import './controlsGrid.css';
 import '../../css/buttons.css';
@@ -9,12 +10,14 @@ import '../../css/buttons.css';
 function mapStateToProps(state) {
 	return {
 		uiState: state.uiState,
+		consoleState: state.consoleState
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
 		uiActions: bindActionCreators(uiActions, dispatch),
+		consoleActions: bindActionCreators(consoleActions, dispatch)
 	};
 }
 
@@ -97,26 +100,45 @@ class ControlsGrid extends React.Component {
 		}
 	}
 
+	toggleFreeze() {
+
+			this.props.uiActions.setRotateX(0);
+			this.props.uiActions.setRotateY(this.props.uiState.autorotate);
+			this.props.uiActions.setRotateZ(0);
+
+		
+		this.props.uiActions.toggleFreeze();
+	}
+
 	render() {
 		let freezeText;
 		let freezeButtonClass = "button";
+		let gridControlsContainerClass = "grid-controls-container";
+		let gridControlClass = "grid-control";
 
-		if (this.props.uiState.moonSpin) {
-			freezeText = "Freeze";
-		} else {
+		if (this.props.uiState.frozen) {
 			freezeText = "Unfreeze";
 			freezeButtonClass += " button-selected";
+		} else {
+			freezeText = "Freeze";
+			gridControlClass += " grid-controls-frozen";
 		}
-		return <div className="grid-controls-container">
+
+		if (this.props.consoleState.taskNumber < 3) {
+			gridControlsContainerClass += " grid-controls-hide";
+		}
+
+
+		return <div className={gridControlsContainerClass}>
 			<div className="grid-control-x-group">
-				<div className="grid-control" 
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(0)} 
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
 				<div className="x-value">{this.props.uiState.rotation.x}&deg;</div>
-				<div className="grid-control" 
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(1)}
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
@@ -124,14 +146,14 @@ class ControlsGrid extends React.Component {
 				</div>
 			</div>
 			<div className="grid-control-y-group">
-				<div className="grid-control" 
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(2)}
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="y-value">{this.props.uiState.rotation.y}&deg;</div>
-				<div className="grid-control" 
+				<div className="y-value">{this.props.uiState.frozen ? this.props.uiState.rotation.y.toFixed(0) : this.props.uiState.autorotate.toFixed(0)}&deg;</div>
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(3)}
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
@@ -139,21 +161,21 @@ class ControlsGrid extends React.Component {
 				</div>
 			</div>
 			<div className="grid-control-z-group">
-				<div className="grid-control" 
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(4)}
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
 				<div className="z-value">{this.props.uiState.rotation.z}&deg;</div>
-				<div className="grid-control" 
+				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(5)}
 					onMouseUp={() => this.clearRotationInterval()}
 					onMouseOut={() => this.clearRotationInterval()}>
 					+
 				</div>
 			</div>
-			<div className={freezeButtonClass} onClick={() => this.props.uiActions.toggleMoonSpin()}>{freezeText}</div>
+			<div className={freezeButtonClass} onClick={() => this.toggleFreeze()}>{freezeText}</div>
 		</div>
 	}
 }

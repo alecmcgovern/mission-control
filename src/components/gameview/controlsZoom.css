@@ -1,4 +1,7 @@
 .zoom-controls-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 200px;
 	height: 20px;
 	bottom: 70px;
@@ -6,7 +9,15 @@
 	margin-bottom: 20px;
 	position: fixed;
 
-	border: 2px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+
+	-webkit-transition: bottom 1s;
+	transition: bottom 1s;
+}
+
+.zoom-controls-hide {
+	bottom: -50px;
 }
 
 .zoom-slider {
@@ -15,4 +26,12 @@
 	width: 200px;
 	height: 1px;
 	background-color: white;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 3px solid #02fcbd;
+	width: 20px;
+	height: 15px;
+	box-sizing: border-box;
 }

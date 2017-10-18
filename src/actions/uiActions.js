@@ -20,8 +20,8 @@ export function toggleTestControls() {
 	return {type: types.TOGGLE_TEST_CONTROLS};
 }
 
-export function toggleMoonSpin() {
-	return {type: types.MOON_SPIN};
+export function toggleFreeze() {
+	return {type: types.TOGGLE_FREEZE};
 }
 
 export function setRotateX(degrees) {
@@ -38,5 +38,9 @@ export function setRotateZ(degrees) {
 
 export function zoom(zoom) {
 	return {type: types.ZOOM, zoom: zoom};
+}
+
+export function autorotate(degrees) {
+	return {type: types.AUTOROTATE, degrees: degrees};
 }
 

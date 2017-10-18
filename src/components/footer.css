@@ -15,6 +15,7 @@
 	transition: margin-bottom 1s;
 
 	overflow: hidden;
+	z-index: 2;
 }
 
 .footer-open {

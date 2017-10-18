@@ -37,6 +37,14 @@
 	position: fixed;
 	width: 50px;
 	cursor: pointer;
+	opacity: 1;
+
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.menu-icon-hide {
+	opacity: 0;
 }
 
 .background-image {

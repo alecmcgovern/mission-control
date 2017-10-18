@@ -7,6 +7,7 @@ export default {
 	uiState: {
 		menuOpen: true,
 		panelIndex: 0,
+		showScripts: false,
 		camera: {
 			type: 0,
 			filter: 0
@@ -16,8 +17,9 @@ export default {
 			y: 0,
 			z: 0
 		},
+		autorotate: 0,
 		zoom: 400,
-		moonSpin: true,
+		frozen: false,
 		testControls: false
 	},
 	
@@ -46,6 +48,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 0
+		taskNumber: 3
 	}
 };

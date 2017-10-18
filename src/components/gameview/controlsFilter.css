@@ -4,18 +4,26 @@
 
 .filter-controls {
 	display: flex;
-	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	flex-direction: column;
 
 	position: fixed;
 	width: 100px;
-	height: 150px;
-	top: 200px;
-	right: 0;
+	height: 65px;
+	bottom: 80px;
 
+	margin-left: 250px;
 	color: white;
 	background-color: rgba(0,0,0,0);
+}
+
+.filters-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 100%;
 }
 
 .filter-one, .filter-two, .filter-three {
@@ -25,11 +33,11 @@
 }
 
 .filter-one {
-	background-color: #FC0D1B;
+	background-color: #EA1E19;
 }
 
 .filter-two {
-	background-color: #35C4BC;
+	background-color: #071ABC;
 }
 
 .filter-selected {

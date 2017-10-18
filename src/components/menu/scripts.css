@@ -1,7 +1,7 @@
 .scripts-form {
 	font-family: 'Orbitron', sans-serif;
 
-	padding: 10px 10px 30px 10px;
+	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -9,6 +9,8 @@
 	width: 100%;
 	min-height: 200px;
 	background-color: rgba(0, 0, 0, 1);
+
+	box-sizing: border-box;
 }
 
 .scripts-input {
@@ -19,7 +21,7 @@
 	
 	padding: 10px;
 	border: 2px solid white;
-	margin: 20px;
+	margin: 20px 0px 20px 0;
 	box-sizing: border-box;
 
 	background-color: black;

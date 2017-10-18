@@ -5,6 +5,10 @@
 	padding-bottom: 10px;
 }
 
+.console-text-container {
+	width: 100%;
+}
+
 .console-text {
 	overflow: auto;
 	white-space: pre-wrap;

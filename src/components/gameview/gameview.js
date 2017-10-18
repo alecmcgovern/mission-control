@@ -80,6 +80,7 @@ class GameView extends React.Component {
 
 	render() {
 		let overlayClassName = "game-view-overlay";
+		let menuIconClass = "menu-icon";
 
 		if (this.props.consoleState.taskNumber > 1) {
 			overlayClassName += " hide";
@@ -87,6 +88,10 @@ class GameView extends React.Component {
 
 		if (this.props.consoleState.taskNumber === 2) {
 			this.centerScroll();
+		}
+
+		if (this.props.consoleState.taskNumber < 3) {
+			menuIconClass += " menu-icon-hide";
 		}
 
 		return <div className="game-view" ref="gameviewElement">
@@ -100,7 +105,7 @@ class GameView extends React.Component {
 				{this.renderControls()}
 				<ControlsGrid />
 				<ControlsZoom />
-				<img className="menu-icon" onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
+				<img className={menuIconClass} onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}
 }

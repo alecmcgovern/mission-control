@@ -1,3 +1,4 @@
+
 .grid-controls-container {
 	position: fixed;
 	display: flex;
@@ -13,7 +14,15 @@
 	border-left: 2px solid white;
 	border-bottom: 2px solid white;
 	background-color: rgba(100, 100, 100, 0.5);
+
+	-webkit-transition: right 1s;
+	transition: right 1s;
 }
+
+.grid-controls-hide {
+	right: -150px;
+}
+
 
 .grid-control-x-group, .grid-control-y-group, .grid-control-z-group {
 	display: flex;
@@ -49,4 +58,15 @@
 
 .grid-control:hover {
 	background-color: white;
+}
+
+.grid-controls-frozen {
+	border: 1px solid grey;
+	color: grey;
+	cursor: default;
+	pointer-events: none;
+}
+
+.grid-controls-frozen:hover {
+	background-color: rgba( 0,0,0,0);
 }

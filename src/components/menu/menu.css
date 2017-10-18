@@ -13,6 +13,8 @@
 
 	-webkit-transition: margin-left 0.5s;
 	transition: margin-left 0.5s;
+
+	z-index: 2;
 }
 
 .menu-container.closed {

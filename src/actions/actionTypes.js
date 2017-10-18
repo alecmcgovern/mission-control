@@ -5,11 +5,13 @@ export const SET_PANEL = 'SET_PANEL';
 export const SET_CAMERA = 'SET_CAMERA';
 export const SET_FILTER = 'SET_FILTER';
 
-export const MOON_SPIN = 'MOON_SPIN';
+export const TOGGLE_FREEZE = 'TOGGLE_FREEZE';
 export const ROTATE_X = 'ROTATE_X';
 export const ROTATE_Y = 'ROTATE_Y';
 export const ROTATE_Z = 'ROTATE_Z';
 export const ZOOM = 'ZOOM';
+
+export const AUTOROTATE = 'AUTOROTATE';
 
 
 export const TOGGLE_TEST_CONTROLS = 'TOGGLE_TEST_CONTROLS';

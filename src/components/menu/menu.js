@@ -32,7 +32,9 @@ class Menu extends React.Component {
 		if(index === 0) {
 			return <div className="console">
 				<ConsolePanel/>
-				<Scripts />
+				{ this.props.uiState.showScripts ? 
+					<Scripts /> : null
+				}
 			</div>
 		} else if (index === 1) {
 			return <InventoryPanel />

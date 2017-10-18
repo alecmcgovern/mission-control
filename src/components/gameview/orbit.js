@@ -8,10 +8,10 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
 import hiddenText1 from '../../images/hiddenText1.png';
-import mars from '../../images/mars.jpg';
+import mars from '../../images/mars-4k.jpg';
 import grid from '../../images/gridcolor.png';
-import filter1 from '../../images/marsThermal1.jpg';
-import filter2 from '../../images/marsThermal2.jpg';
+import filter1 from '../../images/marsThermal1-4k.jpg';
+import filter2 from '../../images/marsThermal2-4k.jpg';
 
 import './orbit.css';
 
@@ -29,7 +29,8 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-class Three extends React.Component {
+class Orbit extends React.Component {
+	
 	constructor(props, context) {
 		super(props, context);
 
@@ -39,33 +40,49 @@ class Three extends React.Component {
 	degreeToRadian(degree) {
 		return degree*(Math.PI/180);
 	}
+	
+	onAnimate() {
+		console.log("autorotating"+ this.props.uiState.autorotate);
+		let degrees = this.props.uiState.autorotate + 0.1;
+		if (degrees > 359) {
+			degrees = 0;
+		}
+		this.props.uiActions.autorotate(degrees);
+	}
 
-	render() {
-		const xRadians = this.degreeToRadian(this.props.rotation.x);
-		const yRadians = this.degreeToRadian(this.props.rotation.y);
-		const zRadians = this.degreeToRadian(this.props.rotation.z);
-		
-		let rotation = new THREE.Euler(xRadians, yRadians, zRadians);
-
+	renderOrbit() {
+		let rotation;
 		let divisions;
 		let imageTexture;
 		let wireframe = false;
 
-		if (this.props.cameraType === 0 ) {
+		if (this.props.uiState.frozen) {
+			const xRadians = this.degreeToRadian(this.props.uiState.rotation.x);
+			const yRadians = this.degreeToRadian(this.props.uiState.rotation.y);
+			const zRadians = this.degreeToRadian(this.props.uiState.rotation.z);
+
+			rotation = new THREE.Euler(xRadians, yRadians, zRadians);
+		} else {
+			rotation = new THREE.Euler(0, this.degreeToRadian(this.props.uiState.autorotate), 0);
+		}
+
+		if (this.props.uiState.camera.type === 0 ) {
 			imageTexture = mars;
 			divisions = 64;
-		} else if (this.props.cameraType === 1) {
+		} else if (this.props.uiState.camera.type === 1) {
 			imageTexture = grid;
 			wireframe = true;
 			divisions = 36;
-		} else if (this.props.cameraType === 2) {
-			this.props.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
+		} else if (this.props.uiState.camera.type === 2) {
+			this.props.uiState.camera.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
 			divisions = 64;
 		}
 
 
-		return(
-				<React3 mainCamera="camera" width={this.props.zoom} height={this.props.zoom} alpha={true}>
+		let orbitItems = [];
+
+		orbitItems.push(
+			<React3 key={-1} mainCamera="camera" width={this.props.uiState.zoom} height={this.props.uiState.zoom} alpha={true} onAnimate={() => this.onAnimate()}>
 					<scene>
 						<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
 						<mesh rotation={rotation}>
@@ -78,31 +95,8 @@ class Three extends React.Component {
 						</mesh>
 					</scene>
 				</React3>
+
 		);
-	}
-}
-
-class Orbit extends React.Component {
-
-	renderOrbit() {
-		let orbitItems = [];
-
-		let gridViewClass = "grid-view-container";
-
-		if (!this.props.uiState.moonSpin) {
-			gridViewClass += " reverseSpin";
-		}
-
-		let wireframe = false;
-		if (this.props.uiState.camera.type === 1) {
-			wireframe = true;
-		}
-
-		let thermal = 0;
-		if (this.props.uiState.camera.type === 2) {
-			thermal = this.props.uiState.camera.filter;
-		}
-		orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} cameraType={this.props.uiState.camera.type} filter={this.props.uiState.camera.filter} zoom={this.props.uiState.zoom}/></div>);
 
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 2) {
@@ -125,10 +119,9 @@ class Orbit extends React.Component {
 	render() {
 		return <div className="moon-orbit">
 			{this.renderOrbit()}
-		</div>
+		</div>;
 	}
 }
-
 
 export default connect(
 	mapStateToProps,

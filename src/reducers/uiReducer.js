@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_X, ROTATE_Y, ROTATE_Z, MOON_SPIN, ZOOM} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_X, ROTATE_Y, ROTATE_Z, TOGGLE_FREEZE, ZOOM, AUTOROTATE} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -32,10 +32,10 @@ export default function uiState(state = initialState.uiState, action) {
 			});
 
 
-		case MOON_SPIN:
-			console.log('MOON_SPIN ' + !state.moonSpin);
+		case TOGGLE_FREEZE:
+			console.log('TOGGLE_FREEZE ' + !state.frozen);
 			return Object.assign({}, state, {
-				moonSpin: !state.moonSpin
+				frozen: !state.frozen
 			});
 		case ROTATE_X:
 			console.log('ROTATE_X ' + action.degrees);
@@ -71,6 +71,10 @@ export default function uiState(state = initialState.uiState, action) {
 				zoom : action.zoom
 			});
 
+		case AUTOROTATE:
+			return Object.assign({}, state, {
+				autorotate: action.degrees
+			});
 
 		case TOGGLE_TEST_CONTROLS:
 			console.log('TOGGLE_TEST_CONTROLS');

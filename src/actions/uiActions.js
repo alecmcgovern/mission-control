@@ -36,3 +36,7 @@ export function setRotateZ(degrees) {
 	return {type: types.ROTATE_Z, degrees: degrees};
 }
 
+export function zoom(zoom) {
+	return {type: types.ZOOM, zoom: zoom};
+}
+

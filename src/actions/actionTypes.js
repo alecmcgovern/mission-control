@@ -9,6 +9,7 @@ export const MOON_SPIN = 'MOON_SPIN';
 export const ROTATE_X = 'ROTATE_X';
 export const ROTATE_Y = 'ROTATE_Y';
 export const ROTATE_Z = 'ROTATE_Z';
+export const ZOOM = 'ZOOM';
 
 
 export const TOGGLE_TEST_CONTROLS = 'TOGGLE_TEST_CONTROLS';

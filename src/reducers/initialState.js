@@ -16,7 +16,7 @@ export default {
 			y: 0,
 			z: 0
 		},
-		zoom: 600,
+		zoom: 400,
 		moonSpin: true,
 		testControls: false
 	},
@@ -46,6 +46,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 3
+		taskNumber: 0
 	}
 };

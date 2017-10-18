@@ -81,14 +81,11 @@ class Scripts extends React.Component {
 			scriptsErrorClass += " scripts-error-hidden"
 		}
 
-		return <div className="scripts">
-			<div className="scripts-panel-header">Scripts</div>
-			<div className="scripts-form">
+		return <div className="scripts-form">
 				<textarea className="scripts-input" type="text" value={this.state.value} onChange={this.handleChange} ref="textarea"/>
 				<div className={scriptsErrorClass}></div>
 				<div className="button button-border" onClick={this.handleSubmit} type="submit" value="Submit" >Submit</div>
-			</div>
-		</div>;
+			</div>;
 	}
 };
 

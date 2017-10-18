@@ -6,9 +6,9 @@ import * as itemActions from '../../actions/itemActions';
 import * as consoleActions from '../../actions/consoleActions';
 
 import Orbit from './orbit.js';
-import FilterControls from './filterControls.js';
-import GridControls from './gridControls.js';
-
+import ControlsFilter from './controlsFilter.js';
+import ControlsGrid from './controlsGrid.js';
+import ControlsZoom from './controlsZoom.js';
 
 // Images
 import stars from '../../images/stars.jpg';
@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch) {
 class GameView extends React.Component {
 	renderControls() {
 		if (this.props.uiState.camera.type === 2) {
-			return <FilterControls />
+			return <ControlsFilter />
 		}
 	}
 
@@ -98,7 +98,8 @@ class GameView extends React.Component {
 				</div>
 				{this.renderItems()}
 				{this.renderControls()}
-				<GridControls />
+				<ControlsGrid />
+				<ControlsZoom />
 				<img className="menu-icon" onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>
 	}

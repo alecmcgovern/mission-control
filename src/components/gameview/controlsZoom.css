@@ -1,0 +1,18 @@
+.zoom-controls-container {
+	width: 200px;
+	height: 20px;
+	bottom: 70px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	position: fixed;
+
+	border: 2px solid white;
+}
+
+.zoom-slider {
+	-webkit-appearance: none;
+
+	width: 200px;
+	height: 1px;
+	background-color: white;
+}

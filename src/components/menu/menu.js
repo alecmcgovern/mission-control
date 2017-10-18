@@ -30,11 +30,13 @@ class Menu extends React.Component {
 
 	buildPanel(index) {
 		if(index === 0) {
-			return <ConsolePanel/>
+			return <div className="console">
+				<ConsolePanel/>
+				<Scripts />
+			</div>
 		} else if (index === 1) {
 			return <InventoryPanel />
 		} else {
-			return <Scripts />
 		}
 	}
 
@@ -43,7 +45,6 @@ class Menu extends React.Component {
 		let bottomMenuClassName = "bottom-menu";
 		let consoleButtonClass = "button";
 		let inventoryButtonClass = "button";
-		let scriptsButtonClass = "button";
 
 		if (!this.props.uiState.menuOpen) {
 			menuContainerClassName += " closed";
@@ -57,15 +58,12 @@ class Menu extends React.Component {
 			consoleButtonClass += " button-selected";
 		} else if (this.props.uiState.panelIndex === 1) {
 			inventoryButtonClass += " button-selected";
-		} else if (this.props.uiState.panelIndex === 2) {
-			scriptsButtonClass += " button-selected";
 		}
 		
 		return <div className={menuContainerClassName}>
 				{this.buildPanel(this.props.uiState.panelIndex)}
 				<div className={bottomMenuClassName}>
 					<div className={consoleButtonClass} onClick={() => this.props.uiActions.setPanel(0)}>console</div>
-					<div className={scriptsButtonClass} onClick={() => this.props.uiActions.setPanel(2)}>scripts</div>
 					<div className={inventoryButtonClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
 				</div>
 			</div>;

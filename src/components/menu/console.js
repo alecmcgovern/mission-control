@@ -114,7 +114,7 @@ class ConsolePanel extends React.Component {
 	}
 
 	render () {
-		return <div className="console">
+		return <div>
 				<div className="audio-container">
 					<audio controls ref="consoleAudio" className="audio-player">
 						<source src={beep} />

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiActions from '../../actions/uiActions';
 
-import './filterControls.css';
+import './controlsFilter.css';
 
 function mapStateToProps(state) {
 	return {
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-class FilterControls extends React.Component {
+class ControlsFilter extends React.Component {
 
 	renderFilters() {
 		if (this.props.uiState.camera.type === 2) {
@@ -48,4 +48,4 @@ class FilterControls extends React.Component {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(FilterControls);
+)(ControlsFilter);

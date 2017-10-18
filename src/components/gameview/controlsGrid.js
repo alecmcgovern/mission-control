@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiActions from '../../actions/uiActions';
 
-import './gridControls.css';
+import './controlsGrid.css';
 import '../../css/buttons.css';
 
 function mapStateToProps(state) {
@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-class GridControls extends React.Component {
+class ControlsGrid extends React.Component {
 
 	setRotationInterval(index) {
 		switch(index) {
@@ -161,4 +161,4 @@ class GridControls extends React.Component {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(GridControls);
+)(ControlsGrid);

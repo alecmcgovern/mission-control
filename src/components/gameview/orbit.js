@@ -8,10 +8,10 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
 import hiddenText1 from '../../images/hiddenText1.png';
-import mars from '../../images/marsmap1k.jpg';
+import mars from '../../images/mars.jpg';
 import grid from '../../images/gridcolor.png';
-import filter1 from '../../images/marsmapthermal1.jpg';
-import filter2 from '../../images/marsmapthermal2.jpg';
+import filter1 from '../../images/marsThermal1.jpg';
+import filter2 from '../../images/marsThermal2.jpg';
 
 import './orbit.css';
 
@@ -53,14 +53,14 @@ class Three extends React.Component {
 
 		if (this.props.cameraType === 0 ) {
 			imageTexture = mars;
-			divisions = 48;
+			divisions = 64;
 		} else if (this.props.cameraType === 1) {
 			imageTexture = grid;
 			wireframe = true;
-			divisions = 24;
+			divisions = 36;
 		} else if (this.props.cameraType === 2) {
 			this.props.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
-			divisions = 48;
+			divisions = 64;
 		}
 
 

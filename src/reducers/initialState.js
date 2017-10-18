@@ -12,10 +12,11 @@ export default {
 			filter: 0
 		},
 		rotation: {
-			x: 90,
+			x: 0,
 			y: 0,
 			z: 0
 		},
+		zoom: 600,
 		moonSpin: true,
 		testControls: false
 	},

@@ -65,7 +65,7 @@ class Three extends React.Component {
 
 
 		return(
-				<React3 mainCamera="camera" width={600} height={600} alpha={true}>
+				<React3 mainCamera="camera" width={this.props.zoom} height={this.props.zoom} alpha={true}>
 					<scene>
 						<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
 						<mesh rotation={rotation}>
@@ -102,7 +102,7 @@ class Orbit extends React.Component {
 		if (this.props.uiState.camera.type === 2) {
 			thermal = this.props.uiState.camera.filter;
 		}
-		orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} cameraType={this.props.uiState.camera.type} filter={this.props.uiState.camera.filter}/></div>);
+		orbitItems.push(<div key={-1} className={gridViewClass}><Three rotation={this.props.uiState.rotation} cameraType={this.props.uiState.camera.type} filter={this.props.uiState.camera.filter} zoom={this.props.uiState.zoom}/></div>);
 
 		this.props.itemState.forEach((item, index) => {
 			if(item.itemLocation === 2) {

@@ -12,6 +12,7 @@ import mars from '../../images/mars-4k.jpg';
 import grid from '../../images/gridcolor.png';
 import filter1 from '../../images/marsThermal1-4k.jpg';
 import filter2 from '../../images/marsThermal2-4k.jpg';
+import spaceStationRotating from '../../images/spaceStationRotating.gif';
 
 import './orbit.css';
 
@@ -107,10 +108,15 @@ class Orbit extends React.Component {
 				}
 
 				orbitItems.push(
-					<img key={index} className={orbitingItemClassName} onClick={() => this.props.itemActions.changeItemLocation(item.itemName, 2)} src={item.itemUrl} alt=""></img>
-				)
+					<img key={index} className={orbitingItemClassName} src={item.itemUrl} alt=""></img>
+				);
+
 			}
 		});
+
+		orbitItems.push(
+			<img key={-5} className="space-station-rotating" src={spaceStationRotating} alt=""></img>
+		);
 
 		return orbitItems;
 	}

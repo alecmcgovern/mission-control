@@ -112,7 +112,7 @@ class ControlsGrid extends React.Component {
 
 	render() {
 		let freezeText;
-		let freezeButtonClass = "button";
+		let freezeButtonClass = "button freeze-button";
 		let gridControlsContainerClass = "grid-controls-container";
 		let gridControlClass = "grid-control";
 

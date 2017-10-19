@@ -115,6 +115,7 @@ class ControlsGrid extends React.Component {
 		let freezeButtonClass = "button freeze-button";
 		let gridControlsContainerClass = "grid-controls-container";
 		let gridControlClass = "grid-control";
+		let rotationValueClass ="rotation-value";
 
 		if (this.props.uiState.frozen) {
 			freezeText = "Unfreeze";
@@ -122,6 +123,7 @@ class ControlsGrid extends React.Component {
 		} else {
 			freezeText = "Freeze";
 			gridControlClass += " grid-controls-frozen";
+			rotationValueClass += " rotation-value-frozen";
 		}
 
 		if (this.props.consoleState.taskNumber < 3) {
@@ -137,7 +139,10 @@ class ControlsGrid extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="x-value">{this.props.uiState.rotation.x}&deg;</div>
+				<div className={rotationValueClass}>
+					<div className="value-label">x:&nbsp;</div>
+					{this.props.uiState.rotation.x}&deg;
+				</div>
 				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(1)}
 					onMouseUp={() => this.clearRotationInterval()}
@@ -152,7 +157,10 @@ class ControlsGrid extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="y-value">{this.props.uiState.frozen ? this.props.uiState.rotation.y.toFixed(0) : this.props.uiState.autorotate.toFixed(0)}&deg;</div>
+				<div className={rotationValueClass}>
+					<div className="value-label">y:&nbsp;</div>
+					{this.props.uiState.frozen ? this.props.uiState.rotation.y.toFixed(0) : this.props.uiState.autorotate.toFixed(0)}&deg;
+				</div>
 				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(3)}
 					onMouseUp={() => this.clearRotationInterval()}
@@ -167,7 +175,10 @@ class ControlsGrid extends React.Component {
 					onMouseOut={() => this.clearRotationInterval()}>
 					-
 				</div>
-				<div className="z-value">{this.props.uiState.rotation.z}&deg;</div>
+				<div className={rotationValueClass}>
+					<div className="value-label">z:&nbsp;</div>
+					{this.props.uiState.rotation.z}&deg;
+				</div>
 				<div className={gridControlClass} 
 					onMouseDown={() => this.setRotationInterval(5)}
 					onMouseUp={() => this.clearRotationInterval()}

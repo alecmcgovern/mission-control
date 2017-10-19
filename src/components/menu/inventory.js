@@ -32,7 +32,7 @@ class InventoryPanel extends React.Component {
       }
     });
 
-    return inventoryItems;
+    return inventoryItems.length > 0 ? inventoryItems : "Empty";
   }
 
   render() {

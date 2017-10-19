@@ -4,7 +4,7 @@
 	align-items: center;
 	width: 200px;
 	height: 20px;
-	bottom: 70px;
+	bottom: 55px;
 	margin-left: 20px;
 	margin-bottom: 20px;
 	position: fixed;
@@ -17,7 +17,7 @@
 }
 
 .zoom-controls-hide {
-	bottom: -50px;
+	bottom: -55px;
 }
 
 .zoom-slider {

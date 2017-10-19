@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {CHANGE_ITEM_LOCATION, CHANGE_ITEM_STATE} from '../actions/actionTypes';
+import {CHANGE_ITEM_LOCATION, CHANGE_ITEM_STATE, TOGGLE_SELECT} from '../actions/actionTypes';
 
 export default function itemState(state = initialState.itemState, action) {
 	switch(action.type) {
@@ -23,6 +23,17 @@ export default function itemState(state = initialState.itemState, action) {
 					});
 				}
 
+				return item;
+			});
+		case TOGGLE_SELECT:
+			console.log("TOGGLE_SELECT" + action.item.itemName);
+			return state.map((item) => {
+				if (item.itemName === action.item.itemName) {
+					return Object.assign({}, item, {
+						selected: !item.selected
+					});
+				}
+				
 				return item;
 			});
 		default:

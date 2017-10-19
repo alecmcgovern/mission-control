@@ -20,7 +20,7 @@ export const TOGGLE_TEST_CONTROLS = 'TOGGLE_TEST_CONTROLS';
 // Item Actions
 export const CHANGE_ITEM_LOCATION = 'CHANGE_ITEM_LOCATION';
 export const CHANGE_ITEM_STATE = 'CHANGE_ITEM_STATE';
-
+export const TOGGLE_SELECT = 'TOGGLE_SELECT';
 // Game progess Actions
 export const COMPLETE_TASK = 'COMPLETE_TASK';
 export const GO_BACK = 'GO_BACK';

@@ -30,16 +30,11 @@ class Menu extends React.Component {
 
 	buildPanel(index) {
 		if(index === 0) {
-			return <div className="console">
-				<ConsolePanel/>
-				{ this.props.uiState.showScripts ? 
-					<Scripts /> : null
-				}
-			</div>;
+			return <div className="panel-container"><ConsolePanel/></div>;
 		} else if (index === 1) {
-			return <InventoryPanel />;
+			return <div className="panel-container"><InventoryPanel /></div>;
 		} else {
-			return <Scripts />;
+			return <div className="panel-container"><Scripts /></div>;
 		}
 	}
 

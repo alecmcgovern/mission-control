@@ -76,7 +76,7 @@ class ConsolePanel extends React.Component {
 						<Typist.Delay ms={800} />
 						<p>Power and life support appear to be online but communications are down.</p>
 						<Typist.Delay ms={800} />
-						<p>Determine why the rotation rockets are not firing and fix them.</p>
+						<p>We need you to to do a remote restart of the rotation rockets.</p>
 					</Typist>
 				</div>;
 			case 3:
@@ -85,8 +85,27 @@ class ConsolePanel extends React.Component {
 					<br />
 					<p>The Transnational Martian Orbiter has stopped rotating.</p>
 					<p>Power and life support appear to be online but communications are down.</p>
-					<p>Determine why the rotation rockets are not firing and fix them.</p>
+					<p>We need you to to do a remote restart of the rotation rockets.</p>
 				</div>;
+
+			case 4:
+				return <div className="text-container">
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+						<p>Good work.</p>
+						<Typist.Delay ms={800} />
+						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
+						<Typist.Delay ms={800} />
+						<p>Stay tuned</p>
+					</Typist>
+				</div>;
+			case 5:
+				return <div className="text-container">
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+						<p>Good work.</p>
+						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
+						<p>Stay tuned</p>
+					</Typist>
+				</div>
 
 			default:
 				return 0;

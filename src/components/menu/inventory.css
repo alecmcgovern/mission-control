@@ -1,25 +1,34 @@
 .inventory {
 	color: #02fcbd;
+	display: flex;
+	min-height: 300px;
 }
 
 .inventory-container {
-	display: flex;
-	flex-grow: 1;
 }
 
 .inventory-item {
 	display: flex;
 	justify-content: center;
 	
-	width: 80px;
-	height: 80px;
+	width: 90px;
+	height: 90px;
 	margin: 10px;
 	border: 1px solid white;
 	overflow: hidden;
-
 	cursor: pointer;
+}
+
+.item-selected {
+	border: 3px solid #02fcbd;
 }
 
 .inventory-item-image {
 	max-height: 80px;
+}
+
+.inventory-controls-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
 }

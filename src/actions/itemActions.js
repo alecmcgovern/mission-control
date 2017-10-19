@@ -7,3 +7,7 @@ export function changeItemLocation(itemName, itemLocation) {
 export function changeItemState(itemName, itemState) {
 	return {type: types.CHANGE_ITEM_STATE, item: { itemName: itemName, itemState: itemState }};
 }
+
+export function toggleSelect(item) {
+	return {type: types.TOGGLE_SELECT, item: item};
+}

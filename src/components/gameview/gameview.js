@@ -59,7 +59,7 @@ class GameView extends React.Component {
 		// }
 		
 		const rotation = this.props.uiState.rotation;
-		if (this.props.uiState.camera.type === 1 && rotation.x === 100 && parseInt(rotation.y.toFixed(0)) === 100 && rotation.z === 100) {	
+		if (this.props.uiState.camera.type === 1 && rotation.x === 49 && parseInt(rotation.y.toFixed(0)) === 247 && rotation.z === 334) {	
 			this.props.itemState.forEach((item, index) => {
 				if(item.itemLocation === 0 && item.itemName === "tablet") {
 					gameViewItems.push(

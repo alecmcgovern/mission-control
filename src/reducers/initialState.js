@@ -30,6 +30,7 @@ export default {
 			itemName: "spinner",
 			itemLocation: 2,
 			itemState: 0,
+			selected: false,
 			className: "object1"
 		},
 		{
@@ -37,18 +38,20 @@ export default {
 			itemName: "spring",
 			itemLocation: 0,
 			itemState: 0,
+			selected: false,
 			className: "object2 interact"
 		},
 		{
 			itemUrl: object3,
 			itemName: "tablet",
-			itemLocation: 0,
+			itemLocation: 1,
 			itemState: 0,
+			selected: false,
 			className: "object3 interact"
 		}
 	],
 
 	consoleState: {
-		taskNumber: 0
+		taskNumber: 3
 	}
 };

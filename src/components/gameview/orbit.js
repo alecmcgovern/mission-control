@@ -9,7 +9,7 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
 import hiddenText1 from '../../images/hiddenText1.png';
-import mars from '../../images/mars-4k.jpg';
+import mars from '../../images/mars-4k-clue.jpg';
 import grid from '../../images/gridcolor.png';
 import filter1 from '../../images/marsThermal1-4k.jpg';
 import filter2 from '../../images/marsThermal2-4k.jpg';

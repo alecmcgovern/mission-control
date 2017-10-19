@@ -1,8 +1,9 @@
-.console {
+.panel-container {
 	color: #02fcbd;
 	max-height: 100%;
 	overflow: auto;
 	padding-bottom: 10px;
+	flex-grow: 1;
 }
 
 .console-text-container {

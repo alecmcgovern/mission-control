@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as uiActions from '../../actions/uiActions';
 import * as itemActions from '../../actions/itemActions';
+import * as consoleActions from '../../actions/consoleActions';
 
 import React3 from 'react-three-renderer';
 import * as THREE from 'three';
@@ -20,6 +21,7 @@ function mapStateToProps(state) {
 	return {
 		uiState: state.uiState,
 		itemState: state.itemState,
+		consoleState: state.consoleState
 	};
 }
 
@@ -27,6 +29,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		uiActions: bindActionCreators(uiActions, dispatch),
 		itemActions: bindActionCreators(itemActions, dispatch),
+		consoleActions: bindActionCreators(consoleActions, dispatch)
 	};
 }
 
@@ -43,15 +46,55 @@ class Orbit extends React.Component {
 	}
 	
 	onAnimate() {
-		console.log("autorotating"+ this.props.uiState.autorotate);
-		let degrees = this.props.uiState.autorotate + 0.1;
-		if (degrees > 359) {
-			degrees = 0;
+		if (this.props.consoleState.taskNumber > 2) {
+			let degrees = this.props.uiState.autorotate + 0.1;
+			if (degrees > 359) {
+				degrees = 0;
+			}
+			this.props.uiActions.autorotate(degrees);
 		}
-		this.props.uiActions.autorotate(degrees);
+	}
+
+	componentDidMount() {
+		this.setSpaceStationDimensions();
+	}
+
+	componentDidUpdate() {
+		this.setSpaceStationDimensions();
+	}
+
+	setSpaceStationDimensions() {
+		if (this.refs.spaceStation) {
+			this.refs.spaceStation.style.width = this.props.uiState.zoom/10 + "px";	
+		}
+
+		if (this.refs.spaceStationRotating) {
+			this.refs.spaceStationRotating.style.width = (this.props.uiState.zoom + 50)/10 + "px";
+		}
 	}
 
 	renderOrbit() {
+		let orbitItems = [];
+
+		if (this.props.uiState.camera.type === 0) {
+			if(this.props.uiState.spaceStationRotating) {
+				orbitItems.push(
+					<img key={-5} ref="spaceStationRotating" className="space-station-rotating" src={spaceStationRotating} alt=""></img>
+				);	
+			} else {
+				let item = this.props.itemState[0];
+				let orbitingItemClassName = item.className;
+				orbitItems.push(
+					<img key={-4} ref="spaceStation" className={orbitingItemClassName} src={item.itemUrl} alt=""></img>
+				);
+			}
+		}
+
+		return orbitItems;
+	}
+
+
+	render() {
 		let rotation;
 		let divisions;
 		let imageTexture;
@@ -79,10 +122,7 @@ class Orbit extends React.Component {
 			divisions = 64;
 		}
 
-
-		let orbitItems = [];
-
-		orbitItems.push(
+		return <div className="moon-orbit">
 			<React3 key={-1} mainCamera="camera" width={this.props.uiState.zoom} height={this.props.uiState.zoom} alpha={true} onAnimate={() => this.onAnimate()}>
 					<scene>
 						<perspectiveCamera name="camera" fov={50} aspect={1} near={0.1} far={1000} position={this.cameraPosition} />
@@ -96,34 +136,6 @@ class Orbit extends React.Component {
 						</mesh>
 					</scene>
 				</React3>
-
-		);
-
-		this.props.itemState.forEach((item, index) => {
-			if(item.itemLocation === 2) {
-				let orbitingItemClassName = item.className;
-
-				if(item.itemState === 1) {
-					orbitingItemClassName += " rotating";
-				}
-
-				orbitItems.push(
-					<img key={index} className={orbitingItemClassName} src={item.itemUrl} alt=""></img>
-				);
-
-			}
-		});
-
-		orbitItems.push(
-			<img key={-5} className="space-station-rotating" src={spaceStationRotating} alt=""></img>
-		);
-
-		return orbitItems;
-	}
-
-
-	render() {
-		return <div className="moon-orbit">
 			{this.renderOrbit()}
 		</div>;
 	}

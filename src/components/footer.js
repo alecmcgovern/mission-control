@@ -55,7 +55,7 @@ class Footer extends React.Component {
 		return (
 			<div className={footerCLass}>
 				<div className={testControlsClass}>
-					<div className="test-button" onClick={() => this.props.itemActions.changeItemState("spinner", 0)}>Rotate</div>
+					<div className="test-button" onClick={() => this.props.uiActions.toggleRotation()}>Rotate</div>
 				</div>
 				<div className="right">
 					<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>

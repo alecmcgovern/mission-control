@@ -11,6 +11,7 @@ export const ROTATE_Y = 'ROTATE_Y';
 export const ROTATE_Z = 'ROTATE_Z';
 export const ZOOM = 'ZOOM';
 
+export const TOGGLE_ROTATION = 'TOGGLE_ROTATION';
 export const AUTOROTATE = 'AUTOROTATE';
 
 

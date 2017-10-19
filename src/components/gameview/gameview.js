@@ -47,19 +47,19 @@ class GameView extends React.Component {
 	renderItems() {
 		let gameViewItems = [];
 
-		if (this.props.uiState.camera.type === 0) {	
+		// if (this.props.uiState.camera.type === 0) {	
 
-			this.props.itemState.forEach((item, index) => {
-				if(item.itemLocation === 0 && item.itemName !== "tablet") {
-					gameViewItems.push(
-						<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
-					)
-				}
-			});
-		}
+		// 	this.props.itemState.forEach((item, index) => {
+		// 		if(item.itemLocation === 0 && item.itemName !== "tablet") {
+		// 			gameViewItems.push(
+		// 				<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
+		// 			)
+		// 		}
+		// 	});
+		// }
 		
 		const rotation = this.props.uiState.rotation;
-		if (this.props.uiState.camera.type === 1 && rotation.x === 100 && rotation.y === 100 && rotation.z === 100) {	
+		if (this.props.uiState.camera.type === 1 && rotation.x === 100 && parseInt(rotation.y.toFixed(0)) === 100 && rotation.z === 100) {	
 			this.props.itemState.forEach((item, index) => {
 				if(item.itemLocation === 0 && item.itemName === "tablet") {
 					gameViewItems.push(

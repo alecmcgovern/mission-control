@@ -44,3 +44,6 @@ export function autorotate(degrees) {
 	return {type: types.AUTOROTATE, degrees: degrees};
 }
 
+export function toggleRotation() {
+	return {type: types.TOGGLE_ROTATION};
+}

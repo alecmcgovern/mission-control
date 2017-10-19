@@ -18,9 +18,10 @@ export default {
 			z: 0
 		},
 		autorotate: 0,
-		zoom: 400,
+		zoom: 450,
 		frozen: false,
-		testControls: false
+		testControls: true,
+		spaceStationRotating: false
 	},
 	
 	itemState: [
@@ -48,6 +49,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 3
+		taskNumber: 0
 	}
 };

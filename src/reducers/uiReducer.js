@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_X, ROTATE_Y, ROTATE_Z, TOGGLE_FREEZE, ZOOM, AUTOROTATE} from '../actions/actionTypes';
+import {TOGGLE_MENU, SET_PANEL, SET_CAMERA, SET_FILTER, TOGGLE_TEST_CONTROLS, ROTATE_X, ROTATE_Y, ROTATE_Z, TOGGLE_FREEZE, ZOOM, AUTOROTATE, TOGGLE_ROTATION} from '../actions/actionTypes';
 
 export default function uiState(state = initialState.uiState, action) {
 
@@ -80,6 +80,12 @@ export default function uiState(state = initialState.uiState, action) {
 			console.log('TOGGLE_TEST_CONTROLS');
 			return Object.assign({}, state, {
 				testControls: !state.testControls
+			});
+
+		case TOGGLE_ROTATION:
+			console.log('TOGGLE_ROTATION');
+			return Object.assign({}, state, {
+				spaceStationRotating: !state.spaceStationRotating
 			});
 
 		default:

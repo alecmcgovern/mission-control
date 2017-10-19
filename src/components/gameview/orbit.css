@@ -37,8 +37,10 @@
 
 .object1 {
 	position: absolute;
-	left: 800px;
-	width: 120px;
+}
+
+.space-station-rotating {
+	position: absolute;
 }
 
 .item-hidden {

@@ -27,6 +27,16 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Footer extends React.Component {
+	toggleRotation() {
+		this.props.uiActions.toggleRotation();
+		let callback = () => {
+			this.props.uiActions.setPanel(0);
+			this.props.uiActions.setCamera(0);
+			this.props.consoleActions.goForward();
+		}
+
+		setTimeout(callback, 1000);
+	}
 
 	render() {
 		let footerCLass = "footer";
@@ -55,7 +65,7 @@ class Footer extends React.Component {
 		return (
 			<div className={footerCLass}>
 				<div className={testControlsClass}>
-					<div className="test-button" onClick={() => this.props.uiActions.toggleRotation()}>Rotate</div>
+					<div className="test-button" onClick={() => this.toggleRotation()}>Rotate</div>
 				</div>
 				<div className="right">
 					<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>

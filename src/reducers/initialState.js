@@ -44,7 +44,7 @@ export default {
 		{
 			itemUrl: object3,
 			itemName: "tablet",
-			itemLocation: 1,
+			itemLocation: 0,
 			itemState: 0,
 			selected: false,
 			className: "object3 interact"
@@ -52,6 +52,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 3
+		taskNumber: 0
 	}
 };

@@ -1,16 +1,13 @@
 .scripts-panel-header {
-	display: flex;
-	justify-content: center;
 	color: #02fcbd;
 }
 
-/*.scripts-form {
-	max-height: 100%;
-	flex-grow: 1;
-	overflow: auto;
-	padding-bottom: 10px;
-	background-color: rgba(0, 0, 0, 1);
-}*/
+.scripts-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 
 .scripts-input {
 	font-family: 'Orbitron', sans-serif;

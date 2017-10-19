@@ -8,6 +8,7 @@
 
 .console-text-container {
 	width: 100%;
+	min-height: 300px;
 }
 
 .typed-text {

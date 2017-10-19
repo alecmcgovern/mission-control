@@ -4,8 +4,9 @@ import {bindActionCreators} from 'redux';
 import * as consoleActions from '../../actions/consoleActions';
 import * as uiActions from '../../actions/uiActions';
 
-import Typed from 'typed.js';
+import Typist from 'react-typist';
 import * as Strings from '../strings.js';
+
 
 import './console.css';
 import '../../css/buttons.css';
@@ -24,50 +25,7 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-const typedTextOptions = {
-	startDelay: 0,
-  	typeSpeed: 0,
-  	backDelay: 2000,
-  	backSpeed: 20,
-  	showCursor: false,
-  	cursorChar: "_",
-  	autoInsertCss: true,
-  	contentType: 'text'
-}
-
 class ConsolePanel extends React.Component {
-
-	componentDidMount() {
-		let text1 = {
-		  	...typedTextOptions,
-		  	strings: [Strings.TEXT_ONE_TYPED],
-		  	onComplete: () => {this.props.consoleActions.goForward()}
-		}
-
-		let text2 = {
-		  	...typedTextOptions,
-		  	strings: [Strings.TEXT_TWO_TYPED],
-		  	onComplete: () => {this.props.consoleActions.goForward()}
-		}
-
-		if (this.props.consoleState.taskNumber === 0) {
-			this.typed = new Typed(".typed-text", text1);
-		} else if (this.props.consoleState.taskNumber === 2) {
-			this.typed = new Typed(".typed-text", text2);
-		}
-	}
-
-	componentDidUpdate() {
-		let text2 = {
-		  	...typedTextOptions,
-		  	strings: [Strings.TEXT_TWO_TYPED],
-		  	onComplete: () => {this.props.consoleActions.goForward()}
-		}
-
-		if (this.props.consoleState.taskNumber === 2) {
-			this.typed = new Typed(".typed-text", text2);
-		}
-	}
 
 	componentWillUnmount() {
 		if (this.typed) {
@@ -75,13 +33,11 @@ class ConsolePanel extends React.Component {
 		}
 	}
 
-	goForward() {
-		// this.refs.consoleAudio.play();
-		this.props.consoleActions.goForward();
+	goForward(delay) {
+		setTimeout(() => this.props.consoleActions.goForward(), delay);
 	}
 
 	toggleMenu() {
-		// this.refs.consoleAudio.play();
 		this.props.uiActions.toggleMenu();
 	}
 
@@ -89,21 +45,47 @@ class ConsolePanel extends React.Component {
 		switch(this.props.consoleState.taskNumber) {
 			case 0:
 				return <div className="text-container">
-					<div className="typed-text console-text"></div>
+					<Typist avgTypingDelay={20} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+						<p>Welcome to Mission Control.</p>
+						<Typist.Delay ms={800} />
+						<br />
+						<p>Follow our instructions.</p>
+						<Typist.Delay ms={800} />
+						<br />
+						<p>Good luck.</p>
+					</Typist>
 				</div>;
 			case 1:
 				return <div className="text-container">
-					<div className="console-text">{Strings.TEXT_ONE}</div>
-					<div className="button button-hover" onClick={() => this.goForward()}>START</div>
+					<p>Welcome to Mission Control.</p>
+					<br />
+					<p>Follow our instructions.</p>
+					<br />
+					<p>Good luck.</p>
+					<br />
+					<div className="button button-hover" onClick={() => this.props.consoleActions.goForward()}>START</div>
 				</div>;
 
 			case 2:
 				return <div className="text-container">
-					<div className="typed-text console-text"></div>
+					<Typist avgTypingDelay={20} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(0)}}>
+						<p>Mission 1:</p>
+						<br />
+						<Typist.Delay ms={800} />
+						<p>The Transnational Martian Orbiter has stopped rotating.</p>
+						<Typist.Delay ms={800} />
+						<p>Power and life support appear to be online but communications are down.</p>
+						<Typist.Delay ms={800} />
+						<p>Determine why the rotation rockets are not firing and fix them.</p>
+					</Typist>
 				</div>;
 			case 3:
 				return <div className="text-container">
-					<div className="console-text">{Strings.TEXT_TWO}</div>
+					<p>Mission 1:</p>
+					<br />
+					<p>The Transnational Martian Orbiter has stopped rotating.</p>
+					<p>Power and life support appear to be online but communications are down.</p>
+					<p>Determine why the rotation rockets are not firing and fix them.</p>
 				</div>;
 
 			default:

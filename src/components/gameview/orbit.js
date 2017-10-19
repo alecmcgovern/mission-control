@@ -46,13 +46,13 @@ class Orbit extends React.Component {
 	}
 	
 	onAnimate() {
-		if (this.props.consoleState.taskNumber > 2) {
+		// if (this.props.consoleState.taskNumber > 2) {
 			let degrees = this.props.uiState.autorotate + 0.1;
 			if (degrees > 359) {
 				degrees = 0;
 			}
 			this.props.uiActions.autorotate(degrees);
-		}
+		// }
 	}
 
 	componentDidMount() {

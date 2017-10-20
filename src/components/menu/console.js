@@ -45,7 +45,7 @@ class ConsolePanel extends React.Component {
 		switch(this.props.consoleState.taskNumber) {
 			case 0:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
 						<p>Welcome to Mission Control.</p>
 						<Typist.Delay ms={800} />
 						<br />
@@ -68,7 +68,7 @@ class ConsolePanel extends React.Component {
 
 			case 2:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
 						<p>Mission 1:</p>
 						<br />
 						<Typist.Delay ms={800} />
@@ -95,7 +95,7 @@ class ConsolePanel extends React.Component {
 
 			case 4:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
 						<p>Good work.</p>
 						<Typist.Delay ms={800} />
 						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
@@ -105,7 +105,7 @@ class ConsolePanel extends React.Component {
 				</div>;
 			case 5:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => {this.goForward(800)}}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
 						<p>Good work.</p>
 						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
 						<p>Stay tuned...</p>

@@ -26,6 +26,7 @@
 	width: 200px;
 	height: 1px;
 	background-color: white;
+	cursor: pointer;
 }
 
 input[type=range]::-webkit-slider-thumb {

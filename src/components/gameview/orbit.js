@@ -65,11 +65,12 @@ class Orbit extends React.Component {
 
 	setSpaceStationDimensions() {
 		if (this.refs.spaceStation) {
-			this.refs.spaceStation.style.width = this.props.uiState.zoom/10 + "px";	
+			this.refs.spaceStation.style.width = Math.pow(this.props.uiState.zoom,2)/4000 + "px";	
+			// this.refs.spaceStation.style.width = this.props.uiState.zoom/10 + "px";	
 		}
 
 		if (this.refs.spaceStationRotating) {
-			this.refs.spaceStationRotating.style.width = (this.props.uiState.zoom + 50)/10 + "px";
+			this.refs.spaceStationRotating.style.width = Math.pow(this.props.uiState.zoom,2)/4000 + "px";
 		}
 	}
 

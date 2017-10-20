@@ -13,8 +13,8 @@
 	background-color: black;
 	z-index: 1;
 
-	-webkit-transition: opacity 2s;
-	transition: opacity 2s;
+	-webkit-transition: opacity 6s;
+	transition: opacity 6s;
 }
 
 .hide {

@@ -45,15 +45,15 @@ class ConsolePanel extends React.Component {
 		switch(this.props.consoleState.taskNumber) {
 			case 0:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
+					<Typist startDelay={800} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Welcome to Mission Control.</p>
 					</Typist>
 						<br />
-					<Typist startDelay={2000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
+					<Typist startDelay={2800} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Follow our instructions.</p>
 					</Typist>
 						<br />
-					<Typist startDelay={3200} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(1000)}>
+					<Typist startDelay={4400} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(1000)}>
 						<p>Good luck.</p>
 					</Typist>
 				</div>;
@@ -65,7 +65,7 @@ class ConsolePanel extends React.Component {
 					<br />
 					<p>Good luck.</p>
 					<br />
-					<div className="button button-hover" onClick={() => this.props.consoleActions.goForward()}>START</div>
+					<div className="button button-hover start-button" onClick={() => this.props.consoleActions.goForward()}>START</div>
 				</div>;
 
 			case 2:
@@ -77,15 +77,13 @@ class ConsolePanel extends React.Component {
 					<Typist startDelay={1000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>The Transnational Martian Orbiter has stopped rotating.</p>
 					</Typist>
-					<Typist startDelay={3000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
+					<br />
+					<Typist startDelay={3400} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Power and life support appear to be online but communications are down.</p>
 					</Typist>
-					<Typist startDelay={5500} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
+					<br />
+					<Typist startDelay={6000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(1000)}>
 						<p>We need you to do a remote restart of the rotation rockets.</p>
-					</Typist>
-						<br />
-					<Typist startDelay={7600} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(500)}>
-						<p>Find clues and items to acheive your goal, or try to hack it with code.</p>
 					</Typist>
 				</div>;
 			case 3:
@@ -93,29 +91,34 @@ class ConsolePanel extends React.Component {
 					<p>Mission 1:</p>
 					<br />
 					<p>The Transnational Martian Orbiter has stopped rotating.</p>
+					<br />
 					<p>Power and life support appear to be online but communications are down.</p>
+					<br />
 					<p>We need you to do a remote restart of the rotation rockets.</p>
 					<br />
-					<p>Find clues and items to acheive your goal, or try to hack it with code.</p>
 				</div>;
 
 			case 4:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
+					<Typist startDelay={600} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Good work.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
+					<br />
+					<Typist startDelay={2800} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
+					<br />
+					<Typist startDelay={5800} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(1000)}>
 						<p>Stay tuned...</p>
 					</Typist>
 				</div>;
 			case 5:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
 						<p>Good work.</p>
+						<br />
 						<p>The crew can now work in simulated gravity and should restore communications soon.</p>
+						<br />
 						<p>Stay tuned...</p>
-					</Typist>
 				</div>
 
 			default:

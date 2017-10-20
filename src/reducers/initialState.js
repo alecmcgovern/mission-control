@@ -18,7 +18,7 @@ export default {
 			z: 0
 		},
 		autorotate: 0,
-		zoom: 450,
+		zoom: 550,
 		frozen: false,
 		testControls: false,
 		spaceStationRotating: false

@@ -45,13 +45,15 @@ class ConsolePanel extends React.Component {
 		switch(this.props.consoleState.taskNumber) {
 			case 0:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Welcome to Mission Control.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
 						<br />
+					<Typist startDelay={2000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Follow our instructions.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
 						<br />
+					<Typist startDelay={3200} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(1000)}>
 						<p>Good luck.</p>
 					</Typist>
 				</div>;
@@ -68,17 +70,21 @@ class ConsolePanel extends React.Component {
 
 			case 2:
 				return <div className="text-container">
-					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(800)}>
+					<Typist avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Mission 1:</p>
+					</Typist>
 						<br />
-						<Typist.Delay ms={800} />
+					<Typist startDelay={1000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>The Transnational Martian Orbiter has stopped rotating.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
+					<Typist startDelay={3000} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>Power and life support appear to be online but communications are down.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
+					<Typist startDelay={5500} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}}>
 						<p>We need you to do a remote restart of the rotation rockets.</p>
-						<Typist.Delay ms={800} />
+					</Typist>
 						<br />
+					<Typist startDelay={7600} avgTypingDelay={10} stdTypingDelay={0} cursor={{show: false}} onTypingDone={() => this.goForward(500)}>
 						<p>Find clues and items to acheive your goal, or try to hack it with code.</p>
 					</Typist>
 				</div>;

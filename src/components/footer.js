@@ -40,7 +40,7 @@ class Footer extends React.Component {
 
 	render() {
 		let footerCLass = "footer";
-		if(this.props.consoleState.taskNumber > 2) {
+		if(this.props.consoleState.taskNumber > 1) {
 			footerCLass += " footer-open";
 		}
 
@@ -63,16 +63,18 @@ class Footer extends React.Component {
 		}
 
 		return (
-			<div className={footerCLass}>
-				<div className={testControlsClass}>
-					<div className="test-button" onClick={() => this.toggleRotation()}>Rotate</div>
+			<div className="footer-outside">
+				<div className="footer-edge"></div>
+				<div className={footerCLass}>
+					<div className={testControlsClass}>
+						<div className="test-button" onClick={() => this.toggleRotation()}>Rotate</div>
+					</div>
+					<div className="right">
+						<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>
+						<div className={gridButtonClass} onClick={() => this.props.uiActions.setCamera(1)}>Grid</div>
+						<div className={thermalButtonClass} onClick={() => this.props.uiActions.setCamera(2)}>Thermal</div>
+					</div>
 				</div>
-				<div className="right">
-					<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>
-					<div className={gridButtonClass} onClick={() => this.props.uiActions.setCamera(1)}>Grid</div>
-					<div className={thermalButtonClass} onClick={() => this.props.uiActions.setCamera(2)}>Thermal</div>
-				</div>
-
 			</div>
 		);
 	}

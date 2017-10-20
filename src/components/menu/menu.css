@@ -6,7 +6,6 @@
 	width: 380px;
 	margin-left: 0px;
 	background-color: black;
-	border-right: 2px solid white;
 	line-height: 25px;
 	font-family: 'Orbitron', sans-serif;
 	box-sizing: border-box;
@@ -46,8 +45,66 @@
 
 	border-top: 1px dotted #02fcbd;
 	box-sizing: border-box;
+	opacity: 1;
+
+	-webkit-transition: opacity 3s;
+	transition: opacity 3s;
 }
 
 .bottom-menu-hide {
 	opacity: 0;
+	pointer-events: none;
+}
+
+.menu-outside {
+	display: flex;
+}
+
+.menu-edge {
+	height: 0;
+	background-color: white;
+	width: 2px;
+	-webkit-animation: traverseDown 1s linear; 
+       -moz-animation: traverseDown 1s linear; 
+        -ms-animation: traverseDown 1s linear; 
+         -o-animation: traverseDown 1s linear; 
+            animation: traverseDown 1s linear;
+
+    -webkit-animation-delay: 5s;
+       -moz-animation-delay: 5s; 
+        -ms-animation-delay: 5s; 
+         -o-animation-delay: 5s; 
+            animation-delay: 5s; 
+
+     -webkit-animation-fill-mode: forwards;
+       -moz-animation-fill-mode: forwards; 
+        -ms-animation-fill-mode: forwards; 
+         -o-animation-fill-mode: forwards; 
+            animation-fill-mode: forwards; 
+}
+
+
+@keyframes traverseDown {
+    from { height: 0; }
+    to   { height: 100%; }
+}
+/* Firefox < 16 */
+@-moz-keyframes traverseDown {
+    from { height: 0; }
+    to   { height: 100%; }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes traverseDown {
+    from { height: 0; }
+    to   { height: 100%; }
+}
+/* Internet Explorer */
+@-ms-keyframes traverseDown {
+    from { height: 0; }
+    to   { height: 100%; }
+}
+/* Opera < 12.1 */
+@-o-keyframes traverseDown {
+    from { height: 0; }
+    to   { height: 100%; }
 }

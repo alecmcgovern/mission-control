@@ -6,14 +6,10 @@
 	justify-content: space-around;
 	align-items: center;
 
-	right: 0;
+	right: 10px;
 	top: 0;
 	width: 120px;
 	height: 200px;
-
-	/*border-left: 2px solid white;
-	border-bottom: 2px solid white;*/
-	/*background-color: rgba(100, 100, 100, 0.5);*/
 
 	-webkit-transition: right 1s;
 	transition: right 1s;

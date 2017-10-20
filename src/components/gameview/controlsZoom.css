@@ -8,16 +8,17 @@
 	margin-left: 20px;
 	margin-bottom: 20px;
 	position: fixed;
+	opacity: 1;
 
 	border-left: 1px solid white;
 	border-right: 1px solid white;
 
-	-webkit-transition: bottom 1s;
-	transition: bottom 1s;
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
 }
 
 .zoom-controls-hide {
-	bottom: -55px;
+	opacity: 0;
 }
 
 .zoom-slider {

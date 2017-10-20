@@ -61,13 +61,16 @@ class Menu extends React.Component {
 			scriptsButtonClass += " button-selected";
 		}
 		
-		return <div className={menuContainerClassName}>
-				{this.buildPanel(this.props.uiState.panelIndex)}
-				<div className={bottomMenuClassName}>
-					<div className={consoleButtonClass} onClick={() => this.props.uiActions.setPanel(0)}>console</div>
-					<div className={scriptsButtonClass} onClick={() => this.props.uiActions.setPanel(2)}>code</div>
-					<div className={inventoryButtonClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
+		return <div className="menu-outside">
+				<div className={menuContainerClassName}>
+					{this.buildPanel(this.props.uiState.panelIndex)}
+					<div className={bottomMenuClassName}>
+						<div className={consoleButtonClass} onClick={() => this.props.uiActions.setPanel(0)}>console</div>
+						<div className={scriptsButtonClass} onClick={() => this.props.uiActions.setPanel(2)}>code</div>
+						<div className={inventoryButtonClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
+					</div>
 				</div>
+				<div className="menu-edge"></div>
 			</div>;
 
 	}

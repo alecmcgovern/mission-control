@@ -1,25 +1,24 @@
 .footer {
 	width: 100%;
-	min-height: 55px;
-	margin-bottom: -55px;
+	height: 100%;
 	box-sizing: border-box;
+	opacity: 0;
 
 	display: flex;
 	justify-content: space-around;
 	font-family: 'Orbitron', sans-serif;
 
 	background-color: black;
-	border-top: 2px solid white;
 
-	-webkit-transition: margin-bottom 1s;
-	transition: margin-bottom 1s;
+	-webkit-transition: opacity 3s;
+	transition: opacity 3s;
 
 	overflow: hidden;
 	z-index: 2;
 }
 
 .footer-open {
-	margin-bottom: 0;
+	opacity: 1;
 }
 
 .right {
@@ -55,6 +54,58 @@
 	color: white;
 }
 
-.sfx-audio {
-	visibility: hidden;
+.footer-outside {
+	display: flex;
+	flex-direction: column;
+	min-height: 55px;
 }
+
+.footer-edge {
+	width: 0;
+	height: 2px; 
+	background-color: white;
+
+	-webkit-animation: traverseAcross 1.5s linear; 
+       -moz-animation: traverseAcross 1.5s linear; 
+        -ms-animation: traverseAcross 1.5s linear; 
+         -o-animation: traverseAcross 1.5s linear; 
+            animation: traverseAcross 1.5s linear;
+
+    -webkit-animation-delay: 5.5s;
+       -moz-animation-delay: 5.5s; 
+        -ms-animation-delay: 5.5s; 
+         -o-animation-delay: 5.5s; 
+            animation-delay: 5.5s; 
+
+     -webkit-animation-fill-mode: forwards;
+       -moz-animation-fill-mode: forwards; 
+        -ms-animation-fill-mode: forwards; 
+         -o-animation-fill-mode: forwards; 
+            animation-fill-mode: forwards; 
+}
+
+@keyframes traverseAcross {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+/* Firefox < 16 */
+@-moz-keyframes traverseAcross {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes traverseAcross {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+/* Internet Explorer */
+@-ms-keyframes traverseAcross {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+/* Opera < 12.1 */
+@-o-keyframes traverseAcross {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+

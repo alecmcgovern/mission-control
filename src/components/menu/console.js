@@ -94,7 +94,7 @@ class ConsolePanel extends React.Component {
 					<br />
 					<p>The Transnational Martian Orbiter has stopped rotating.</p>
 					<p>Power and life support appear to be online but communications are down.</p>
-					<p>We need you to to do a remote restart of the rotation rockets.</p>
+					<p>We need you to do a remote restart of the rotation rockets.</p>
 					<br />
 					<p>Find clues and items to acheive your goal, or try to hack it with code.</p>
 				</div>;

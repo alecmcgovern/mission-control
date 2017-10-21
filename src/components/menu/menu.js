@@ -44,6 +44,7 @@ class Menu extends React.Component {
 		let consoleButtonClass = "button";
 		let inventoryButtonClass = "button";
 		let scriptsButtonClass = "button";
+		let menuEdgeClass = "menu-edge";
 
 		if (!this.props.uiState.menuOpen) {
 			menuContainerClassName += " closed";
@@ -51,6 +52,10 @@ class Menu extends React.Component {
 
 		if (this.props.consoleState.taskNumber < 3) {
 			bottomMenuClassName += " bottom-menu-hide";
+		}
+
+		if (this.props.consoleState.taskNumber < 2) {
+			menuEdgeClass += " menu-edge-hide";
 		}
 
 		if (this.props.uiState.panelIndex === 0) {
@@ -70,7 +75,7 @@ class Menu extends React.Component {
 						<div className={inventoryButtonClass} onClick={() => this.props.uiActions.setPanel(1)}>inventory</div>
 					</div>
 				</div>
-				<div className="menu-edge"></div>
+				<div className={menuEdgeClass}></div>
 			</div>;
 
 	}

@@ -40,8 +40,12 @@ class Footer extends React.Component {
 
 	render() {
 		let footerCLass = "footer";
+		let footerEdgeClass = "footer-edge";
+
 		if(this.props.consoleState.taskNumber > 1) {
 			footerCLass += " footer-open";
+		} else {
+			footerEdgeClass += " footer-edge-hide";
 		}
 
 		let cameraButtonClass = "button button-camera";
@@ -64,7 +68,7 @@ class Footer extends React.Component {
 
 		return (
 			<div className="footer-outside">
-				<div className="footer-edge"></div>
+				<div className={footerEdgeClass}></div>
 				<div className={footerCLass}>
 					<div className={testControlsClass}>
 						<div className="test-button" onClick={() => this.toggleRotation()}>Rotate</div>

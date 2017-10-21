@@ -15,6 +15,9 @@
 
 	-webkit-transition: opacity 6s;
 	transition: opacity 6s;
+
+	-webkit-transition-delay: 2.5s;
+	transition-delay: 2.5s;
 }
 
 .hide {

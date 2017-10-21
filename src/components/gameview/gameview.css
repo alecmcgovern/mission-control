@@ -6,6 +6,10 @@
 	font-family: 'Orbitron', sans-serif;
 }
 
+.game-view::-webkit-scrollbar { 
+    display: none; 
+}
+
 .game-view-overlay {
 	position: absolute;
 	width: 1920px;

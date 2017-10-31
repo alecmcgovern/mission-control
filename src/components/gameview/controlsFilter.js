@@ -22,10 +22,13 @@ function mapDispatchToProps(dispatch) {
 
 class ControlsFilter extends React.Component {
 
-	renderFilters() {
+	render() {
+		let filterOneClass = "filter-one";
+		let filterTwoClass = "filter-two";
+
 		if (this.props.uiState.camera.type === 2) {
-			let filterOneClass = "filter-one";
-			let filterTwoClass = "filter-two";
+			filterOneClass += " show-filter-controls";
+			filterTwoClass += " show-filter-controls";
 
 			if (this.props.uiState.camera.filter === 0) {
 				filterOneClass += " filter-selected";
@@ -33,19 +36,15 @@ class ControlsFilter extends React.Component {
 				filterTwoClass += " filter-selected";
 			}
 
-			return <div className="filter-controls">
+		}
+		return <div className="filter-controls-container">
+			<div className="filter-controls">
 				<div className="filter-header">FILTERS</div>
 				<div className="filters-container">
 				<div className={filterOneClass} onClick={() => this.props.uiActions.setFilter(0)}></div>
 				<div className={filterTwoClass} onClick={() => this.props.uiActions.setFilter(1)}></div>
 				</div>
 			</div>
-		}
-	}
-
-	render() {
-		return <div className="filter-controls-container">
-			{this.renderFilters()}
 		</div>
 	}
 }

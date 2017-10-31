@@ -2,6 +2,10 @@
 
 }
 
+.filter-header {
+	color: rgba(256,256,256,0.8);
+}
+
 .filter-controls {
 	display: flex;
 	justify-content: space-around;
@@ -33,13 +37,20 @@
 }
 
 .filter-one {
+	background-color: rgba(256,256,256,0.2);
+}
+.filter-one.show-filter-controls {
 	background-color: #EA1E19;
 }
 
 .filter-two {
+	background-color: rgba(256,256,256,0.4);
+}
+
+.filter-two.show-filter-controls {
 	background-color: #071ABC;
 }
 
 .filter-selected {
-	border: 2px solid white;
+	border: 2px solid yellow;
 }

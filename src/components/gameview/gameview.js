@@ -34,11 +34,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class GameView extends React.Component {
-	renderControls() {
-		if (this.props.uiState.camera.type === 2) {
-			return <ControlsFilter />
-		}
-	}
 
 	addItemToInventory(item) {
 		this.props.itemActions.changeItemLocation(item.itemName, 1);	
@@ -102,8 +97,8 @@ class GameView extends React.Component {
 					<Orbit />
 				</div>
 				{this.renderItems()}
-				{this.renderControls()}
 				<ControlsGrid />
+				<ControlsFilter />
 				<ControlsZoom />
 				<img className={menuIconClass} onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>

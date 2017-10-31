@@ -46,13 +46,11 @@ class Orbit extends React.Component {
 	}
 	
 	onAnimate() {
-		// if (this.props.consoleState.taskNumber > 2) {
-			let degrees = this.props.uiState.autorotate + 0.1;
-			if (degrees > 359) {
-				degrees = 0;
-			}
-			this.props.uiActions.autorotate(degrees);
-		// }
+		let degrees = this.props.uiState.autorotate + 0.1;
+		if (degrees > 359) {
+			degrees = 0;
+		}
+		this.props.uiActions.autorotate(degrees);
 	}
 
 	componentDidMount() {
@@ -66,7 +64,6 @@ class Orbit extends React.Component {
 	setSpaceStationDimensions() {
 		if (this.refs.spaceStation) {
 			this.refs.spaceStation.style.width = Math.pow(this.props.uiState.zoom,2)/4000 + "px";	
-			// this.refs.spaceStation.style.width = this.props.uiState.zoom/10 + "px";	
 		}
 
 		if (this.refs.spaceStationRotating) {
@@ -100,18 +97,20 @@ class Orbit extends React.Component {
 		let divisions;
 		let imageTexture;
 		let wireframe = false;
+		const yRadians = this.degreeToRadian(this.props.uiState.rotation.y);
+		const zRadians = this.degreeToRadian(this.props.uiState.rotation.z);
+		const xRadians = this.degreeToRadian(this.props.uiState.rotation.x);
 
 		if (this.props.uiState.frozen) {
-			const xRadians = this.degreeToRadian(this.props.uiState.rotation.x);
-			const yRadians = this.degreeToRadian(this.props.uiState.rotation.y);
-			const zRadians = this.degreeToRadian(this.props.uiState.rotation.z);
-
 			rotation = new THREE.Euler(xRadians, yRadians, zRadians);
 		} else {
-			rotation = new THREE.Euler(0, this.degreeToRadian(this.props.uiState.autorotate), 0);
+			rotation = new THREE.Euler(xRadians, this.degreeToRadian(this.props.uiState.autorotate), zRadians);
 		}
 
 		if (this.props.uiState.camera.type === 0 ) {
+			if (this.props.uiState.frozen) {
+				this.props.uiActions.toggleFreeze();
+			}
 			imageTexture = mars;
 			divisions = 64;
 		} else if (this.props.uiState.camera.type === 1) {
@@ -119,6 +118,9 @@ class Orbit extends React.Component {
 			wireframe = true;
 			divisions = 36;
 		} else if (this.props.uiState.camera.type === 2) {
+			if (this.props.uiState.frozen) {
+				this.props.uiActions.toggleFreeze();
+			}
 			this.props.uiState.camera.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
 			divisions = 64;
 		}

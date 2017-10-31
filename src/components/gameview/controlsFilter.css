@@ -2,6 +2,7 @@
 
 }
 
+
 .filter-header {
 	color: rgba(256,256,256,0.8);
 }
@@ -20,6 +21,13 @@
 	right: 10px;
 	color: white;
 	background-color: rgba(0,0,0,0);
+
+	-webkit-transition: right 1s;
+	transition: right 1s;
+}
+
+.filter-controls-hide {
+	right: -150px;
 }
 
 .filters-container {
@@ -34,6 +42,7 @@
 	cursor: pointer;
 	width: 30px;
 	height: 30px;
+	box-sizing: border-box;
 }
 
 .filter-one {

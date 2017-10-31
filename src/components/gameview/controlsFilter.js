@@ -25,6 +25,7 @@ class ControlsFilter extends React.Component {
 	render() {
 		let filterOneClass = "filter-one";
 		let filterTwoClass = "filter-two";
+		let filterControlsClass = "filter-controls";
 
 		if (this.props.uiState.camera.type === 2) {
 			filterOneClass += " show-filter-controls";
@@ -37,14 +38,17 @@ class ControlsFilter extends React.Component {
 			}
 
 		}
-		return <div className="filter-controls-container">
-			<div className="filter-controls">
+
+		if (this.props.consoleState.taskNumber < 3) {
+			filterControlsClass += " filter-controls-hide";
+		}
+
+		return <div className={filterControlsClass}>
 				<div className="filter-header">FILTERS</div>
 				<div className="filters-container">
 				<div className={filterOneClass} onClick={() => this.props.uiActions.setFilter(0)}></div>
 				<div className={filterTwoClass} onClick={() => this.props.uiActions.setFilter(1)}></div>
 				</div>
-			</div>
 		</div>
 	}
 }

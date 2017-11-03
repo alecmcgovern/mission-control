@@ -15,11 +15,11 @@ export default function itemState(state = initialState.itemState, action) {
 				return item;
 			});
 		case CHANGE_ITEM_STATE:
-			console.log("CHANGE_ITEM_STATE" + action.item.itemState);
+			console.log("CHANGE_ITEM_STATE" + action.itemState);
 			return state.map((item) => {
 				if (item.itemName === action.item.itemName) {
 					return Object.assign({}, item, {
-						itemState: (item.itemState + 1) % 2,
+						itemState: action.item.itemState,
 					});
 				}
 
@@ -47,5 +47,5 @@ export default function itemState(state = initialState.itemState, action) {
 				 2 = placed somewhere in gameview
 
 	Item states: 0 = immobile
-				 1 = rotating
+				 1 = lens used
 */

@@ -26,11 +26,6 @@ function mapDispatchToProps(dispatch) {
 
 class InventoryPanel extends React.Component {
 
-	constructor(props, context) {
-		super(props, context);
-
-	}
-
 	renderItems() {
 		let inventoryItems = [];
 
@@ -43,7 +38,7 @@ class InventoryPanel extends React.Component {
 
 			if (item.itemLocation === 1) {
 				inventoryItems.push(
-				  <div key={index} className={inventoryItemClass} onClick={() => this.props.itemActions.toggleSelect(item)}>
+				  <div key={index} className={inventoryItemClass} onClick={() => this.selectItem(item)}>
 						<img className="inventory-item-image" src={item.itemUrl} alt=""></img>
 					</div>
 				)
@@ -65,17 +60,42 @@ class InventoryPanel extends React.Component {
 				this.props.uiActions.setRotateZ(0);
 				this.props.consoleActions.goForward();
 			}
-			setTimeout(callback, 1000);
+			setTimeout(callback, 10);
 		}
+
+		if (item.itemName === "lens1" || item.itemName === "lens2" || item.itemName === "lens3") {
+			this.props.itemActions.changeItemState(item.itemName, 1);
+		}
+
+		this.props.itemActions.toggleSelect(item);
+	}
+
+	selectItem(item) {
+		this.props.itemState.forEach((i) => {
+			if (i != item && i.selected) {
+				this.props.itemActions.toggleSelect(i);
+			}
+		});
+		this.props.itemActions.toggleSelect(item)
 	}
 
 	renderControls() {
 		let controls;
 		this.props.itemState.forEach((item, index) => {
+			let useText;
+			if (item.itemName === "lens1" || item.itemName === "lens2" || item.itemName === "lens3") {
+				useText = "Equip";
+			} else {
+				useText = "Use";
+			}
 			if (item.selected) {
 				controls = <div className="inventory-controls-container">
-					<div className="button button-border" onClick={() => this.props.itemActions.toggleSelect(item)}>Cancel</div>
-					<div className="button button-border" onClick={() => this.useItem(item)}>Use</div>
+					<div className="item-description">Id:&nbsp;&nbsp;{item.id}</div>
+					<div className="item-description">{item.description}</div>
+					<div className="control-buttons-container">
+						<div className="button button-border" onClick={() => this.selectItem(item)}>Cancel</div>
+						<div className="button button-border" onClick={() => this.useItem(item)}>{useText}</div>
+					</div>
 				</div>;
 			}
 		});

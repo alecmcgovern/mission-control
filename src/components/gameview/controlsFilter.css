@@ -1,11 +1,4 @@
 
-.filter-header {
-	color: rgba(256,256,256,0.5);
-}
-
-.filter-header-show {
-	color: rgba(256,256,256,1);
-}
 
 .filter-controls {
 	display: flex;
@@ -13,9 +6,7 @@
 	align-items: center;
 	flex-direction: column;
 
-	position: fixed;
-	width: 150px;
-	height: 65px;
+	width: 180px;
 	bottom: 70px;
 
 	right: 10px;
@@ -27,7 +18,7 @@
 }
 
 .filter-controls-hide {
-	right: -150px;
+	visibility: hidden;
 }
 
 .filters-container {
@@ -39,12 +30,13 @@
 }
 
 .filter-one, .filter-two, .filter-three {
-	width: 50px;
-	height: 50px;
+	width: 45px;
+	height: 45px;
 	box-sizing: border-box;
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
 	opacity: 0.5;
+	pointer-events: none;
 }
 
 .show-filter-controls {
@@ -52,6 +44,7 @@
 	-webkit-filter: grayscale(0%);
 	filter: grayscale(0%);
 	opacity: 1;
+	pointer-events: auto;
 }
 
 .filter-selected {

@@ -58,23 +58,16 @@
 	position: absolute;
 }
 
-.object2 {
-	position: absolute;
-	width: 40px;
-	top: 100px;
-	left: 1800px;
-}
-
-.object3 {
+.tablet {
 	position: absolute;
 	width: 100px;
 	top: 600px;
 	left: 900px;
 }
 
-.object4 {
+.lens1 {
 	position: absolute;
-	width: 100px;
+	width: 90px;
 	top: 200px;
 	left: 200px;
 
@@ -83,6 +76,27 @@
 	animation-iteration-count: infinite;
 }
 
+.lens2 {
+	position: absolute;
+	width: 90px;
+	top: 200px;
+	left: 1700px;
+
+	animation: 1.5s linear pulse;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+
+.lens3 {
+	position: absolute;
+	width: 90px;
+	top: 900px;
+	left: 600px;
+
+	animation: 1.5s linear pulse;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
 
 
 @keyframes pulse {

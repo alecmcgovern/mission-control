@@ -7,16 +7,19 @@
 .inventory-container {
 	display: flex;
 	align-items: flex-start;
+	width: 100%;
+	flex-wrap: wrap;
 }
 
 .inventory-item {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	
 	width: 90px;
 	height: 90px;
 	margin: 10px;
-	border: 1px solid white;
+	box-sizing: border-box;
 	overflow: hidden;
 	cursor: pointer;
 }
@@ -30,9 +33,22 @@
 }
 
 .inventory-controls-container {
+	margin: 20px;
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	justify-content: space-around;
+	align-items: center;
+}
+
+.item-description {
+	margin-bottom: 20px;
+}
+
+.control-buttons-container {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
 }
 
 .empty-inventory {

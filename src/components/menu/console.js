@@ -5,8 +5,6 @@ import * as consoleActions from '../../actions/consoleActions';
 import * as uiActions from '../../actions/uiActions';
 
 import Typist from 'react-typist';
-import * as Strings from '../strings.js';
-
 
 import './console.css';
 import '../../css/buttons.css';

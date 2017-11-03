@@ -7,6 +7,7 @@
 
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	font-family: 'Orbitron', sans-serif;
 
 	background-color: black;
@@ -26,17 +27,16 @@
 	pointer-events: auto;
 }
 
-.right {
-	width: 400px;
+.center {
+	width: 250px;
 	padding: 10px;
 	display: flex;
 	justify-content: space-around;
 }
 
 .test-controls {
-	position: absolute;
-	left: 0;
 	visibility: hidden;
+	width: 180px;
 	padding: 10px;
 	display: flex;
 	justify-content: space-between;
@@ -79,4 +79,8 @@
 
 .footer-edge-hide {
 	width: 0;
+}
+
+.right {
+	/*border: 1px solid white;*/
 }

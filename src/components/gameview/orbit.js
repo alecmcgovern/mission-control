@@ -9,10 +9,11 @@ import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
 import hiddenText1 from '../../images/hiddenText1.png';
-import mars from '../../images/mars-4k-clue.jpg';
+import mars from '../../images/mars-4k.jpg';
 import grid from '../../images/gridcolor.png';
-import filter1 from '../../images/marsThermal1-4k.jpg';
+import filter1 from '../../images/marsThermal1CLUE-4k.png';
 import filter2 from '../../images/marsThermal2-4k.jpg';
+import filter3 from '../../images/marsThermal3-4k.jpg';
 import spaceStationRotating from '../../images/spaceStationRotating.gif';
 
 import './orbit.css';
@@ -113,16 +114,20 @@ class Orbit extends React.Component {
 			}
 			imageTexture = mars;
 			divisions = 64;
+
+			if (this.props.uiState.camera.filter === 0) {
+				imageTexture = mars;
+			} else if (this.props.uiState.camera.filter === 1) {
+				imageTexture = filter1;
+			} else if (this.props.uiState.camera.filter === 2) {
+				imageTexture = filter2;
+			} else if (this.props.uiState.camera.filter === 3) {
+				imageTexture = filter3;
+			}
 		} else if (this.props.uiState.camera.type === 1) {
 			imageTexture = grid;
 			wireframe = true;
 			divisions = 36;
-		} else if (this.props.uiState.camera.type === 2) {
-			if (this.props.uiState.frozen) {
-				this.props.uiActions.toggleFreeze();
-			}
-			this.props.uiState.camera.filter === 0 ? imageTexture = filter1 : imageTexture = filter2;
-			divisions = 64;
 		}
 
 		return <div className="moon-orbit">

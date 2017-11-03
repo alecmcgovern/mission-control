@@ -6,7 +6,6 @@ import * as itemActions from '../../actions/itemActions';
 import * as consoleActions from '../../actions/consoleActions';
 
 import Orbit from './orbit.js';
-import ControlsFilter from './controlsFilter.js';
 import ControlsGrid from './controlsGrid.js';
 import ControlsZoom from './controlsZoom.js';
 
@@ -42,16 +41,35 @@ class GameView extends React.Component {
 	renderItems() {
 		let gameViewItems = [];
 
-		if (this.props.uiState.camera.type === 0) {	
 
-			this.props.itemState.forEach((item, index) => {
-				if(item.itemLocation === 0 && item.itemName !== "tablet") {
-					gameViewItems.push(
-						<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
-					)
+		this.props.itemState.forEach((item, index) => {
+			if(item.itemLocation === 0 && item.itemName !== "tablet") {
+
+				if (item.itemName === "lens1") {
+					if (this.props.uiState.camera.type === 0) {
+						gameViewItems.push(
+							<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
+						)
+					}
 				}
-			});
-		}
+
+				if (item.itemName === "lens2") {
+					if (this.props.uiState.camera.filter === 2) {
+						gameViewItems.push(
+							<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
+						)
+					}
+				}
+
+				if (item.itemName === "lens3") {
+					if (this.props.uiState.camera.filter === 2) {
+						gameViewItems.push(
+							<img key={index} className={item.className} onClick={() => this.addItemToInventory(item)} src={item.itemUrl} alt=""></img>
+						)
+					}
+				}
+			}
+		});
 		
 		const rotation = this.props.uiState.rotation;
 		if (this.props.uiState.camera.type === 1 && rotation.x === 49 && parseInt(rotation.y.toFixed(0)) === 247 && rotation.z === 334) {	
@@ -98,7 +116,6 @@ class GameView extends React.Component {
 				</div>
 				{this.renderItems()}
 				<ControlsGrid />
-				<ControlsFilter />
 				<ControlsZoom />
 				<img className={menuIconClass} onClick={() => this.props.uiActions.toggleMenu()} src={menuIcon} alt=""></img>
 			</div>

@@ -40,10 +40,6 @@
 	color: white;
 }
 
-.rotation-value-frozen {
-	color: grey;
-}
-
 .grid-control {
 	display: flex;
 	justify-content: center;
@@ -69,6 +65,10 @@
 	background-color: rgba( 0,0,0,0);
 }
 
+.grid-controls-hide {
+	visibility: hidden;
+}
+
 .grid-controls-frozen:hover {
 	background-color: rgba( 0,0,0,0);
 }
@@ -77,6 +77,9 @@
 	width: 30px;
 }
 
+.freeze-button {
+	width: 80px;
+}
 
 
 

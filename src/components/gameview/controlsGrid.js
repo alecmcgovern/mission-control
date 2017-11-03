@@ -118,18 +118,18 @@ class ControlsGrid extends React.Component {
 
 		
 		if (this.props.uiState.camera.type !== 1) {
-			gridControlClass += " grid-controls-frozen";
+			gridControlClass += " grid-controls-hide";
 			rotationValueClass += " rotation-value-frozen";
-			freezeButtonClass += " grid-controls-frozen"
+			freezeButtonClass += " grid-controls-hide"
 		}
 
 		if (this.props.uiState.frozen) {
 			freezeButtonClass += " button-selected";
-			freezeText = "Unfreeze";
+			freezeText = "Unlock";
 		} else {
 			rotationValueClass += " rotation-value-frozen";
 			gridControlClass += " grid-controls-frozen";
-			freezeText = "Freeze";
+			freezeText = "Lock";
 		}
 
 		if (this.props.uiState.camera.type !== 1) {

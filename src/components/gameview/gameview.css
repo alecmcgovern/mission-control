@@ -72,6 +72,33 @@
 	left: 900px;
 }
 
+.object4 {
+	position: absolute;
+	width: 100px;
+	top: 200px;
+	left: 200px;
+
+	animation: 1.5s linear pulse;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+
+
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
 .interact {
 	cursor: pointer;
 }

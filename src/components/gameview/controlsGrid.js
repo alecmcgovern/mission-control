@@ -101,10 +101,9 @@ class ControlsGrid extends React.Component {
 	}
 
 	toggleFreeze() {
-
-			this.props.uiActions.setRotateX(0);
-			this.props.uiActions.setRotateY(this.props.uiState.autorotate);
-			this.props.uiActions.setRotateZ(0);
+		this.props.uiActions.setRotateX(0);
+		this.props.uiActions.setRotateY(this.props.uiState.autorotate);
+		this.props.uiActions.setRotateZ(0);
 
 		
 		this.props.uiActions.toggleFreeze();
@@ -128,6 +127,8 @@ class ControlsGrid extends React.Component {
 			freezeButtonClass += " button-selected";
 			freezeText = "Unfreeze";
 		} else {
+			rotationValueClass += " rotation-value-frozen";
+			gridControlClass += " grid-controls-frozen";
 			freezeText = "Freeze";
 		}
 

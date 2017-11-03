@@ -60,6 +60,9 @@ class InventoryPanel extends React.Component {
 			let callback = () => {
 				this.props.uiActions.setPanel(0);
 				this.props.uiActions.setCamera(0);
+				this.props.uiActions.setRotateX(0);
+				this.props.uiActions.setRotateY(this.props.uiState.autorotate);
+				this.props.uiActions.setRotateZ(0);
 				this.props.consoleActions.goForward();
 			}
 			setTimeout(callback, 1000);

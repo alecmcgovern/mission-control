@@ -38,6 +38,20 @@ class Footer extends React.Component {
 		setTimeout(callback, 1000);
 	}
 
+	setCamera(camera) {
+		if (this.props.uiState.camera === 1 && camera !== 1) {
+			this.props.uiActions.setRotateX(0);
+			this.props.uiActions.setRotateY(this.props.uiState.autorotate);
+			this.props.uiActions.setRotateZ(0);
+
+			if (this.props.uiState.frozen) {
+				this.props.uiActions.toggleFreeze();
+			}
+		}
+
+		this.props.uiActions.setCamera(camera);
+	}
+
 	render() {
 		let footerCLass = "footer";
 		let footerEdgeClass = "footer-edge";
@@ -74,9 +88,9 @@ class Footer extends React.Component {
 						<div className="test-button" onClick={() => this.toggleRotation()}>Rotate</div>
 					</div>
 					<div className="right">
-						<div className={cameraButtonClass} onClick={() => this.props.uiActions.setCamera(0)}>Camera</div>
-						<div className={gridButtonClass} onClick={() => this.props.uiActions.setCamera(1)}>Grid</div>
-						<div className={thermalButtonClass} onClick={() => this.props.uiActions.setCamera(2)}>Thermal</div>
+						<div className={cameraButtonClass} onClick={() => this.setCamera(0)}>Camera</div>
+						<div className={gridButtonClass} onClick={() => this.setCamera(1)}>Grid</div>
+						<div className={thermalButtonClass} onClick={() => this.setCamera(2)}>Thermal</div>
 					</div>
 				</div>
 			</div>

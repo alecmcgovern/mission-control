@@ -39,7 +39,6 @@
 }
 
 .filter-one, .filter-two, .filter-three {
-	cursor: pointer;
 	width: 30px;
 	height: 30px;
 	box-sizing: border-box;
@@ -50,6 +49,7 @@
 }
 .filter-one.show-filter-controls {
 	background-color: #EA1E19;
+	cursor: pointer;
 }
 
 .filter-two {
@@ -58,6 +58,7 @@
 
 .filter-two.show-filter-controls {
 	background-color: #071ABC;
+	cursor: pointer;
 }
 
 .filter-selected {

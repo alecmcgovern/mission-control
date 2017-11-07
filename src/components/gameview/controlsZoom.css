@@ -1,17 +1,13 @@
 .zoom-controls-container {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	width: 200px;
+	width: 250px;
 	height: 20px;
 	bottom: 55px;
 	margin-left: 20px;
 	margin-bottom: 20px;
 	position: fixed;
 	opacity: 1;
-
-	border-left: 1px solid white;
-	border-right: 1px solid white;
 
 	-webkit-transition: opacity 1s;
 	transition: opacity 1s;
@@ -21,13 +17,32 @@
 	opacity: 0;
 }
 
+.zoom-input-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 200px;
+	height: 20px;
+
+	margin-left: 5px;
+
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+}
+
 .zoom-slider {
 	-webkit-appearance: none;
 
 	width: 200px;
-	height: 1px;
+	height: 2px;
 	background-color: white;
 	cursor: pointer;
+}
+
+.zoom-value {
+	margin-left: 10px;
+	color: white;
 }
 
 input[type=range]::-webkit-slider-thumb {

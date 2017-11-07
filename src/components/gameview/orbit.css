@@ -1,5 +1,12 @@
-.three-scene {
-	
+canvas {
+	-webkit-transition: width, height, 0.5s linear;
+    -moz-transition: width, height, 0.5s linear;
+    -o-transition: width, height, 0.5s linear;
+    transition: width, height, 0.5s linear;
+
+
+	/*USE TRANSFORM INSTEAD OF SETTING WIDTH AND HEIGHT ATTRIBUTES*/
+	/*to avoid pixelation for small W/H values*/
 }
 
 .moon-orbit {
@@ -8,25 +15,6 @@
 	align-items: center;
 	width: 900px;
 	height: 900px;
-
-	/*-webkit-animation: spin 45s linear infinite;
-	-moz-animation: spin 45s linear infinite;
-	-animation: spin 45s linear infinite;
-
-	-webkit-backface-visibility: hidden;*/
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}
-
-
-.reverseSpin {
-	-webkit-animation: spin 45s linear infinite;
-	-moz-animation: spin 45s linear infinite;
-	-animation: spin 45s linear infinite;
-
-	animation-direction: reverse;
 }
 
 .hiddenText1 {
@@ -37,6 +25,10 @@
 
 .object1 {
 	position: absolute;
+	-webkit-transition: width, height, 0.5s linear;
+    -moz-transition: width, height, 0.5s linear;
+    -o-transition: width, height, 0.5s linear;
+    transition: width, height, 0.5s linear;
 }
 
 .space-station-rotating {
@@ -45,10 +37,4 @@
 
 .item-hidden {
 	visibility: hidden;
-}
-
-.rotating {
-	-webkit-animation: spin 3s linear infinite;
-	-moz-animation: spin 3s linear infinite;
-	-animation: spin 3s linear infinite;
 }

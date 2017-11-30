@@ -20,7 +20,7 @@ export default {
 			z: 0
 		},
 		autorotate: 0,
-		zoom: 450,
+		zoom: 770/2 + 130,
 		frozen: false,
 		testControls: false,
 		spaceStationRotating: false
@@ -79,6 +79,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 0
+		taskNumber: 3
 	}
 };

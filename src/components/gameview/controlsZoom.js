@@ -33,9 +33,9 @@ class ControlsZoom extends React.Component {
 		}
 		return <div className={zoomControlsContainerClass}>
 			<div className="zoom-input-container">
-				<input ref="slider" type="range" className="zoom-slider" onChange={() => this.onChange()} min={5} max={900} defaultValue={this.props.uiState.zoom}/>
+				<input ref="slider" type="range" className="zoom-slider" onChange={() => this.onChange()} min={130} max={900} defaultValue={this.props.uiState.zoom}/>
 			</div>
-			<div className="zoom-value">{Math.round(this.props.uiState.zoom * 100 / 900) + "%"}</div>
+			<div className="zoom-value">{Math.round((this.props.uiState.zoom - 130) * 100 / (900 - 130) ) + "%"}</div>
 		</div>
 	}
 }

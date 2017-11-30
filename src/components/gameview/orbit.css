@@ -13,8 +13,8 @@ canvas {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 900px;
-	height: 900px;
+	width: 1920px;
+	height: 1280px;
 }
 
 .hiddenText1 {

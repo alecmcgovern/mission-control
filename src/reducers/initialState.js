@@ -79,6 +79,6 @@ export default {
 	],
 
 	consoleState: {
-		taskNumber: 3
+		taskNumber: 0
 	}
 };
